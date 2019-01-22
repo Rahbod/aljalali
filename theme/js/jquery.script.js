@@ -8,8 +8,8 @@ $(document).ready(function() {
 
     $(window).on('scroll', function(){
         if($(this).scrollTop() > 200)
-            $('.menu-container').addClass('fixed');
+            $('.menu-container').removeClass('hidden');
         else
-            $('.menu-container').removeClass('fixed');
+            $('.menu-container').addClass('hidden');
     });
 });
