@@ -43,6 +43,9 @@ a:active {
     background-size: cover;
     overflow: hidden;
 }
+.top-section.inner{
+    height:255px;
+}
 .header{
     position: relative;
     padding-top: 170px;
@@ -691,4 +694,7 @@ a:active {
     left:0;
     z-index:10;
     display: none;
+}
+.context{
+    padding: 70px 0;
 }
