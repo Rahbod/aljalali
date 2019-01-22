@@ -12,21 +12,22 @@
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
 )); ?>
-    <?php if($this->categorySlug == 'index'):?>
+
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'title'); ?>
 		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>255,'class' => 'form-control')); ?>
 		<?php echo $form->error($model,'title'); ?>
 	</div>
-    <? endif; ?>
 
-    <div class="form-group">
-        <?php echo $form->labelEx($model,'en_title'); ?>
-        <?php echo $form->textField($model,'en_title',array('size'=>60,'maxlength'=>255,'class' => 'form-control')); ?>
-        <?php echo $form->error($model,'en_title'); ?>
-    </div>
+    <?php if($this->categorySlug == 'about'):?>
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'parent_id'); ?>
+		<?php echo $form->dropDownList($model,'parent_id', CHtml::listData(Pages::model()->findAll('category_id = 2 and parent_id IS NULL'),'id', 'title'),array('class' => 'form-control')); ?>
+		<?php echo $form->error($model,'parent_id'); ?>
+	</div>
+    <?php endif;?>
 
-    <?php if($this->categorySlug == 'index'):?>
+    <?php if($this->categorySlug == 'services'):?>
     <div class="form-group">
         <?php echo $form->labelEx($model,'image'); ?>
         <?php $this->widget('ext.dropZoneUploader.dropZoneUploader', array(
@@ -34,7 +35,7 @@
             'model' => $model,
             'name' => 'image',
             'maxFiles' => 1,
-            'maxFileSize' => 1, //MB
+            'maxFileSize' => .5, //MB
             'url' => $this->createUrl('upload'),
             'deleteUrl' => $this->createUrl('deleteUpload'),
             'acceptedFiles' => '.jpg, .jpeg, .png',
@@ -53,7 +54,7 @@
         )); ?>
         <?php echo $form->error($model,'image'); ?>
         <div class="uploader-message error"></div>
-        <p><small>اندازه مناسب برای تصویر <?php echo $this->categorySlug == 'base'?"500 در 360":"1600 در 1024" ?> می باشد.</small></p>
+        <p><small>اندازه مناسب برای تصویر 350 در 250 پیکسل می باشد.</small></p>
     </div>
     <?php endif;?>
 
@@ -68,21 +69,19 @@
 		<?php echo $form->error($model,'summary'); ?>
 	</div>
 
-    <?php if($this->categorySlug != 'base'):?>
-        <div class="form-group">
-            <?php echo $form->labelEx($model,'formTags'); ?>
-            <?php
-            $this->widget("ext.tagIt.tagIt",array(
-                'model' => $model,
-                'attribute' => 'formTags',
-                'suggestType' => 'json',
-                'suggestUrl' => Yii::app()->createUrl('/tags/list'),
-                'data' => $model->formTags
-            ));
-            ?>
-            <?php echo $form->error($model,'formTags'); ?>
-        </div>
-    <?php endif;?>
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'formTags'); ?>
+        <?php
+        $this->widget("ext.tagIt.tagIt",array(
+            'model' => $model,
+            'attribute' => 'formTags',
+            'suggestType' => 'json',
+            'suggestUrl' => Yii::app()->createUrl('/tags/list'),
+            'data' => $model->formTags
+        ));
+        ?>
+        <?php echo $form->error($model,'formTags'); ?>
+    </div>
 
 	<div class="form-group buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'افزودن' : 'ویرایش',array('class' => 'btn btn-success')); ?>

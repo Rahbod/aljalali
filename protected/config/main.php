@@ -3,7 +3,7 @@ return array(
 //	'onBeginRequest'=>create_function('$event', 'return ob_start("ob_gzhandler");'),
 //	'onEndRequest'=>create_function('$event', 'return ob_end_flush();'),
 	'basePath' => dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Naseem Exchange',
+	'name'=>'Al-Jalali',
 	'timeZone' => 'Asia/Tehran',
 	'theme' => 'abound',
 	'sourceLanguage' => '00',
@@ -22,8 +22,6 @@ return array(
 		'application.modules.setting.models.*',
 		'application.modules.users.models.*',
 		'application.modules.admins.models.*',
-		'application.modules.transfer.models.*',
-		'application.modules.customers.models.*',
 	),
 
 	'modules'=>array(
@@ -42,8 +40,7 @@ return array(
 		'places',
         'contact',
         'map',
-        'customers',
-        'transfer',
+        'slideshow',
 	),
 
 	// application components
@@ -136,13 +133,13 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// @todo change webmail of emails
-		'adminEmail'=>'info@afra841.ir',
-		'noReplyEmail' => 'noreply@afra841.ir',
+		'adminEmail'=>'info@al-jalali.com',
+		'noReplyEmail' => 'noreply@al-jalali.com',
 		'SMTP' => array(
-			'Host' => 'mail.afra841.ir',
+			'Host' => 'mail.al-jalali.com',
 			'Secure' => 'ssl',
 			'Port' => '465',
-			'Username' => 'noreply@afra841.ir',
+			'Username' => 'noreply@al-jalali.com',
 			'Password' => 'd(&u,zpGBjax',
 		)
 	),

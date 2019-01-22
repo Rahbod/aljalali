@@ -30,7 +30,8 @@ class PagesManageController extends Controller
 				'create',
 				'update',
 				'admin',
-				'delete'
+				'delete',
+                'order'
 			)
 		);
 	}
@@ -41,7 +42,7 @@ class PagesManageController extends Controller
 	public function filters()
 	{
 		return array(
-			'checkAccess + index, create, update, admin, delete'
+			'checkAccess + index, create, update, admin, delete, order'
 		);
 	}
 
@@ -62,6 +63,9 @@ class PagesManageController extends Controller
                 'attribute' => 'image',
                 'uploadDir' => '/uploads/pages/',
                 'storedMode' => 'field'
+            ),
+            'order' => array( // ordering models
+                'class' => 'ext.yiiSortableModel.actions.AjaxSortingAction',
             ),
         );
     }

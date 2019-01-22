@@ -1,11 +1,7 @@
 <?php
 
-class CustomersModule extends CWebModule
+class SlideshowModule extends CWebModule
 {
-	public $controllerMap = array(
-		'manage' => 'customers.controllers.CustomersManageController',
-	);
-
 	public function init()
 	{
 		// this method is called when the module is being created
@@ -13,11 +9,14 @@ class CustomersModule extends CWebModule
 
 		// import the module-level models and components
 		$this->setImport(array(
-			'customers.models.*',
-			'customers.components.*',
+			'slideshow.models.*',
+			'slideshow.components.*',
 		));
 	}
-
+	public $controllerMap = array(
+		'manage' => 'slideshow.controllers.SlideShowManageController',
+		//'categories' => 'slideshow.controllers.EstateCategoriesManageController'
+	);
 	public function beforeControllerAction($controller, $action)
 	{
 		if(parent::beforeControllerAction($controller, $action))

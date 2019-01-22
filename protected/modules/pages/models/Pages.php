@@ -6,10 +6,11 @@
  * The followings are the available columns in table 'ym_pages':
  * @property string $id
  * @property string $title
- * @property string $en_title
  * @property string $summary
  * @property string $category_id
  * @property string $image
+ * @property string $order
+ * @property string $parent_id
  *
  *
  * The followings are the available model relations:
@@ -17,7 +18,7 @@
  * @property Tags[] $tags
  *
  */
-class Pages extends CActiveRecord
+class Pages extends SortableCActiveRecord
 {
     /**
      * @return string the associated database table name
@@ -37,13 +38,14 @@ class Pages extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('image, title, en_title', 'length', 'max' => 255),
+            array('image, title', 'length', 'max' => 255),
             array('category_id', 'length', 'max' => 11),
+            array('order, parent_id', 'length', 'max' => 10),
             array('summary', 'safe'),
             array('formTags', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, title, en_title, summary, category_id', 'safe', 'on' => 'search'),
+            array('id, title, summary, category_id, order', 'safe', 'on' => 'search'),
         );
     }
 
@@ -56,6 +58,7 @@ class Pages extends CActiveRecord
         // class name for the relations automatically generated below.
         return array(
             'category' => array(self::BELONGS_TO, 'PageCategories', 'category_id'),
+            'parent' => array(self::BELONGS_TO, 'Pages', 'parent_id'),
             'tagsRel' => array(self::HAS_MANY, 'TagRel', 'model_id',
                 'on' => 'tagsRel.model_name = :model_name',
                 'params' => array(':model_name' => get_class($this))
@@ -75,11 +78,11 @@ class Pages extends CActiveRecord
         return array(
             'id' => 'ID',
             'title' => 'عنوان',
-            'en_title' => 'عنوان انگلیسی',
             'summary' => 'متن',
             'category_id' => 'دسته بندی',
             'formTags' => 'کلمات کلیدی',
             'image' => 'تصویر',
+            'parent_id' => 'سردسته',
         );
     }
 
@@ -103,9 +106,13 @@ class Pages extends CActiveRecord
 
         $criteria->compare('id', $this->id, true);
         $criteria->compare('title', $this->title, true);
-        $criteria->compare('en_title', $this->en_title, true);
         $criteria->compare('summary', $this->summary, true);
         $criteria->compare('category_id', $this->category_id, true);
+
+        if($this->category_id == 2)
+            $criteria->addCondition('parent_id IS NOT NULL');
+
+        $criteria->order= 't.order';
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
@@ -127,32 +134,32 @@ class Pages extends CActiveRecord
     {
         $this->formTags = isset($_POST[get_class($this)]['formTags']) ? explode(',', $_POST[get_class($this)]['formTags']) : null;
         if ($this->formTags && !empty($this->formTags)) {
-//            if (!$this->isNewRecord) {
-//                $cr = new CDbCriteria();
-//                $cr->compare("model_name", get_class($this));
-//                $cr->compare("model_id", $this->id);
-//                TagRel::model()->deleteAll($cr);
-//            }
-//
-//            foreach ($this->formTags as $tag) {
-//                $tagModel = Tags::model()->findByAttributes(array('title' => $tag));
-//                if ($tagModel) {
-//                    $tag_rel = new TagRel();
-//                    $tag_rel->model_name = get_class($this);
-//                    $tag_rel->model_id = $this->id;
-//                    $tag_rel->tag_id = $tagModel->id;
-//                    $tag_rel->save(false);
-//                } else if (!empty($tag)) {
-//                    $tagModel = new Tags();
-//                    $tagModel->title = $tag;
-//                    $tagModel->save(false);
-//                    $tag_rel = new TagRel();
-//                    $tag_rel->model_name = get_class($this);
-//                    $tag_rel->model_id = $this->id;
-//                    $tag_rel->tag_id = $tagModel->id;
-//                    $tag_rel->save(false);
-//                }
-//            }
+            if (!$this->isNewRecord) {
+                $cr = new CDbCriteria();
+                $cr->compare("model_name", get_class($this));
+                $cr->compare("model_id", $this->id);
+                TagRel::model()->deleteAll($cr);
+            }
+
+            foreach ($this->formTags as $tag) {
+                $tagModel = Tags::model()->findByAttributes(array('title' => $tag));
+                if ($tagModel) {
+                    $tag_rel = new TagRel();
+                    $tag_rel->model_name = get_class($this);
+                    $tag_rel->model_id = $this->id;
+                    $tag_rel->tag_id = $tagModel->id;
+                    $tag_rel->save(false);
+                } else if (!empty($tag)) {
+                    $tagModel = new Tags();
+                    $tagModel->title = $tag;
+                    $tagModel->save(false);
+                    $tag_rel = new TagRel();
+                    $tag_rel->model_name = get_class($this);
+                    $tag_rel->model_id = $this->id;
+                    $tag_rel->tag_id = $tagModel->id;
+                    $tag_rel->save(false);
+                }
+            }
         }
         parent::afterSave();
     }
@@ -160,13 +167,13 @@ class Pages extends CActiveRecord
     protected function afterFind()
     {
         parent::afterFind();
-//        $this->formTags = CHtml::listData($this->tags, 'title', 'title');
+        $this->formTags = CHtml::listData($this->tags, 'title', 'title');
     }
 
     public function getKeywords()
     {
-//        $tags = CHtml::listData($this->tags, 'title', 'title');
-//        return implode(',', $tags);
+        $tags = CHtml::listData($this->tags, 'title', 'title');
+        return implode(',', $tags);
     }
 
     public function getDescription()

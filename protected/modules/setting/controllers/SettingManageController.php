@@ -54,29 +54,6 @@ class SettingManageController extends Controller
                 'attribute' => 'value',
                 'uploadDir' => '/uploads/banner/',
                 'storedMode' => 'field'
-            ),
-            'uploadPdf' => array( // list image upload
-                'class' => 'ext.dropZoneUploader.actions.AjaxUploadAction',
-                'attribute' => 'form_pdf',
-                'rename' => 'random',
-                'validateOptions' => array(
-                    'acceptedTypes' => array('pdf')
-                )
-            ),
-            'uploadWord' => array( // list image upload
-                'class' => 'ext.dropZoneUploader.actions.AjaxUploadAction',
-                'attribute' => 'form_word',
-                'rename' => 'random',
-                'validateOptions' => array(
-                    'acceptedTypes' => array('doc', 'docx')
-                )
-            ),
-            'deleteForm' => array( // delete list image uploaded
-                'class' => 'ext.dropZoneUploader.actions.AjaxDeleteUploadedAction',
-                'modelName' => 'SiteSetting',
-                'attribute' => 'value',
-                'uploadDir' => "/$this->formPath/",
-                'storedMode' => 'field'
             )
         );
     }
@@ -108,7 +85,7 @@ class SettingManageController extends Controller
             $this->refresh();
         }
         $criteria = new CDbCriteria();
-        $criteria->addCondition('name NOT REGEXP \'\\([^\\)]*form_.*\\)\' AND name NOT LIKE \'%price%\'');
+        $criteria->order = 'id';
         $model = SiteSetting::model()->findAll($criteria);
         $this->render('_general', array(
             'model' => $model

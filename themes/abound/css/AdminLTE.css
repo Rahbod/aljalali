@@ -4640,3 +4640,14 @@ ul.wysihtml5-toolbar > li {
 .dz-hidden-input{
   display: none !important;
 }
+
+.sortable-handle {
+  text-indent: -9999px;
+  background: url("../svg/move.svg") no-repeat scroll center transparent;
+  background-size: 16px;
+  cursor: grab;
+}
+.sortable-handle:focus,
+.sortable-handle:active{
+  cursor: grabbing;
+}

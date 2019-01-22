@@ -6,22 +6,8 @@ $this->breadcrumbs=array(
 	'مدیریت'=>array('admin'),
 	'افزودن',
 );
-if($this->categorySlug == 'document')
-{
 
-    $this->menu=array(
-        array('label'=>'مدیریت', 'url'=>array('manage/admin/slug/document')),
-    );
-    $pageType = 'مستندات';
-}
-if($this->categorySlug == 'free')
-{
-    $this->menu=array(
-        array('label'=>'مدیریت', 'url'=>array('admin')),
-    );
-    $pageType = 'صحفه';
-}
-
+$pageType = $this->categoryName;
 ?>
 
 

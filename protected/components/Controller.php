@@ -112,20 +112,27 @@ class Controller extends AuthController
                     'url' => array('/admins/dashboard')
                 ),
                 array(
-                    'label' => '<i class="fa fa-dashboard"></i><span>تغییر قیمت ارز</span>',
-                    'url' => array('/setting/manage/changePrice')
+                    'label' => '<i class="fa fa-bars"></i><span>صفحات منو</span>',
+                    'url' => array('/pages/manage/admin/slug/menu')
                 ),
                 array(
-                    'label' => '<i class="fa fa-bars"></i><span>صفحات متنی</span> <i class="fa fa-angle-left pull-left"></i>',
+                    'label' => '<i class="fa fa-user"></i><span>درباره شهید</span>',
+                    'url' => array('/pages/manage/admin/slug/about')
+                ),
+                array(
+                    'label' => '<i class="fa fa-graduation-cap"></i><span>خدمات شهید</span>',
+                    'url' => array('/pages/manage/admin/slug/services')
+                ),
+                array(
+                    'label' => '<i class="fa fa-picture-o"></i><span>اسلایدشو</span> <i class="fa fa-angle-left pull-left"></i>',
                     'url' => '#',
                     'itemOptions' => array('class' => 'treeview', 'tabindex' => "-1"),
                     'submenuOptions' => array('class' => 'treeview-menu'),
                     'items' => array(
-                        array('label' => '<i class="fa fa-circle-o"></i>صفحات و متون اصلی', 'url' => Yii::app()->createUrl('/pages/manage/admin/slug/base')),
-                        array('label' => '<i class="fa fa-circle-o"></i>متون صفحه اصلی', 'url' => Yii::app()->createUrl('/pages/manage/admin/slug/index')),
+                        array('label' => '<i class="fa fa-circle-o"></i>مدیریت تصاویر', 'url' => Yii::app()->createUrl('/slideshow/manage/admin/')),
+                        array('label' => '<i class="fa fa-circle-o"></i>افزودن تصویر جدید', 'url' => Yii::app()->createUrl('/slideshow/manage/create')),
                     )
                 ),
-
                 array(
                     'label' => '<i class="fa fa-support"></i><span>تماس با ما</span> <i class="fa fa-angle-left pull-left"></i>',
                     'url' => '#',
@@ -155,8 +162,7 @@ class Controller extends AuthController
                     'submenuOptions' => array('class' => 'treeview-menu'),
                     'items' => array(
                         array('label' => '<i class="fa fa-circle-o"></i>عمومی', 'url' => Yii::app()->createUrl('/setting/manage/changeSetting')),
-                        array('label' => '<i class="fa fa-circle-o"></i>فرم های حواله', 'url' => Yii::app()->createUrl('/setting/manage/forms')),
-                        array('label' => '<i class="fa fa-circle-o"></i>نقشه گوگل', 'url' => Yii::app()->createUrl('/map/manage/update/1')),
+//                        array('label' => '<i class="fa fa-circle-o"></i>نقشه گوگل', 'url' => Yii::app()->createUrl('/map/manage/update/1')),
                         array('label' => '<i class="fa fa-circle-o"></i>شبکه های اجتماعی', 'url' => Yii::app()->createUrl('/setting/manage/socialLinks')),
                     )
                 ),
@@ -175,66 +181,6 @@ class Controller extends AuthController
                     'visible' => !Yii::app()->user->isGuest
                 ),
             );
-        elseif(Yii::app()->user->roles == 'transfer_admin')
-            return [
-                array(
-                    'label' => 'منوی مدیریت سیستم صدور حواله',
-                    'itemOptions' => array('class' => 'header'),
-                ),
-                array(
-                    'label' => '<i class="fa fa-money text-warning"></i><span class="text-warning">حواله های این شعبه</span>',
-                    'url' => array('/transfer/manage/my'),
-                ),
-                array(
-                    'label' => '<i class="fa fa-money"></i><span>حواله ها</span>',
-                    'url' => array('/transfer/manage/admin')
-                ),
-                array(
-                    'label' => '<i class="fa fa-user"></i><span>مدیریت مشتریان</span>',
-                    'url' => array('/customers/manage/admin')
-                ),
-                array(
-                    'label' => '<i class="fa fa-briefcase"></i><span>مدیریت شعب</span>',
-                    'url' => array('/admins/manage/branches')
-                ),
-                array(
-                    'label' => '<i class="fa fa-dollar"></i><span>تنظیم نرخ ارز</span>',
-                    'url' => array('/setting/manage/changeCurrencyPrice')
-                ),
-                array(
-                    'label' => '<i class="fa fa-line-chart"></i><span>گزارشات</span>',
-                    'url' => array('/transfer/manage/report')
-                ),
-                array(
-                    'label' => '<i class="fa fa-edit"></i><span>مشخصات شعبه</span>',
-                    'url' => array('/admins/manage/update?id='.Yii::app()->user->getId())
-                ),
-                array(
-                    'label' => '<i class="fa fa-sign-out text-danger"></i><span class="text-danger">خروج</span>',
-                    'url' => array('/admins/login/logout'),
-                    'visible' => !Yii::app()->user->isGuest
-                ),
-            ];
-        elseif(Yii::app()->user->roles == 'branch')
-            return [
-                array(
-                    'label' => 'منوی مدیریت سیستم صدور حواله',
-                    'itemOptions' => array('class' => 'header'),
-                ),
-                array(
-                    'label' => '<i class="fa fa-money"></i><span>مدیریت حواله ها</span>',
-                    'url' => array('/transfer/manage/admin')
-                ),
-                array(
-                    'label' => '<i class="fa fa-user"></i><span>مدیریت مشتریان</span>',
-                    'url' => array('/customers/manage/admin')
-                ),
-                array(
-                    'label' => '<i class="fa fa-sign-out text-danger"></i><span class="text-danger">خروج</span>',
-                    'url' => array('/admins/login/logout'),
-                    'visible' => !Yii::app()->user->isGuest
-                ),
-            ];
         else
             return array();
     }
