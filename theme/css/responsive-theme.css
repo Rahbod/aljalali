@@ -1,114 +1,158 @@
 @media screen and (max-width: 767px){
-    .parallax-window{
-        height: 60%;
+    .top-section{
+        height:349px;
     }
-    .page .parallax-window{
-        height: 100%;
+    .header{
+        padding-top: 85px;
     }
-    .logo{
-        background-size: 250px;
-        position: relative;
-        display: block;
-        width: 100%;
-        border-top: none;
-        margin-top: 90px;
-    }
-    .price-box{
-        width: 100%;
-        right: 0;
-        top: 100vh;
-        margin-top: -300px;
-    }
-    .intro-box{
-        margin-top: 80px;
-    }
-    .intro-box .text{
-        padding-left: 0;
-        border-bottom: 1px solid #d1cfcf;
-        border-left: none;
-        padding-bottom: 15px;
-    }
-    .intro-box .col-lg-4:last-child .text{
-        border-bottom: none;
-    }
-    #google-map{
+    .header .aya{
         position: relative;
         width: 100%;
         top: auto;
-        left: auto;
-        height: 300px;
+        margin: 15px 0;
     }
-    .copyright{
-        text-align: center;
-    }
-    .copyright .socials-container{
+    .search-container{
         float: none;
-    }
-    .copyright .left{
-        float: none;
-    }
-    .copyright .socials-container a{
-        float: none;
-        display: inline-block;
-    }
-    .copyright .socials-container{
-        text-align: center;
-        height: 30px;
-    }
-    .page .logo{
-        width: 200px;
-        height:40px;
-        margin-top: 0;
-        background: url("../svg/logo-white.svg") no-repeat left center;
-        background-size: auto 40px;
-    }
-    .page .mobile-menu-trigger{
-        float: right;
-    }
-    .page .top,
-    .page-bg{
-        height:350px;
-    }
-    .page .page-title{
-        top: 340px;
-        font-size: 40px;
-        width: auto;
-    }
-    .page .price-box{
-        margin-top: 60px;
         width: 100%;
     }
-    .page .price-box .item{
-        padding: 20px;
+    .slider .slide-item{
+        height:200px;
     }
-    .page-bg::after{
-        height: 150px;
+    .slider .slide-item img{
+        max-height:200px;
     }
-    .page .footer .content{
+    .menu-container.on-top{
+        top: 0;
+    }
+    .menu-container .menu{
+        position: fixed;
+        background: #fff;
+        width: 70%;
+        height:100%;
+        left: -70%;
+        top: 0;
+        z-index:11;
+        padding-top: 120px;
+
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        transition: all 0.4s;
+    }
+    .menu-container .menu.open{
+        left: 0;
+    }
+    .menu-container .menu::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #23679b url("../images/name.png") no-repeat center;
+        background-size: auto 60px;
+        height: 100px;
+        width: 100%;
+    }
+    .menu-container .menu ul{
+        margin: 0;
+        height:auto;
+    }
+    .menu-container .menu li{
+        float: none;
+        margin-left: 0;
+        height:auto;
+    }
+    .menu-container .menu li a{
+        line-height:20px;
+        color: #323232;
+        padding: 10px 15px;
+    }
+    .about-section,
+    .services-section{
         padding: 30px 0;
     }
-    .page .content{
-        padding: 50px 0 0;
+    .about-section h2,
+    .services-section h2{
+        margin-bottom: 30px;
     }
-    .page .header{
-        position: fixed;
+    .about-item{
+        margin-bottom: 15px;
+    }
+    .service-item img{
+        max-height:250px;
+    }
+    .service-item{
+        margin-bottom: 15px;
+    }
+    .video-section .title-container,
+    .video-section .video-container{
         width: 100%;
-        top: 0;
-        right: 0;
-        z-index:400;
+        height:auto;
+        float: none;
     }
-    .page{
-        padding-top: 70px;
+    .video-section .video-container video{
+        height:250px;
     }
-    .page .page-title.terms-page{
-        font-size: 30px;
+    .video-section .title-container{
+        padding: 0;
     }
-    .transfer-link{
-        margin-top: 5px;
+    .video-section .title-container h2{
+        float: none;
+        margin: 30px 0;
+        text-align: center;
+        font-size: 25px;
+    }
+    .prayer-time-section img{
+        float: none;
+        margin: 0 auto;
+        display: block;
+    }
+    .prayer-time-section h3{
+        float: none;
+        margin: 20px auto 50px;
+        text-align: center;
+    }
+    .prayer-time-section .times{
+        float: none;
+        margin: 0;
         width: 100%;
     }
-    .transfer-link.black{
-        margin-top: 50px;
+    .prayer-time-section .times li{
+        float: none;
+        margin: 0 0 30px;
+        text-align: center;
+        width: 100%;
+    }
+    .bottom-section{
+        padding: 30px 0;
+    }
+    .bottom-section .info-container,
+    .bottom-section .form-container{
+        float: none;
+        width: 100%;
+        padding: 0;
+        border:none;
+    }
+    .bottom-section .form-container .form-row{
+        margin: 0;
+    }
+    .bottom-section .form-container .form-row .col-xs-12{
+        margin-bottom: 30px;
+    }
+    .bottom-section .form-container .captcha input{
+        width: calc(100% - 154px);
+    }
+    .footer-section{
+        padding: 30px 0;
+    }
+    .footer-section .footer-block{
+        display: block;
+        padding: 0;
+        margin-bottom: 30px;
+    }
+    .footer-section .pull-right{
+        float: none !important;
+        text-align: center;
     }
 }
 @media (min-width: 768px) and (max-width: 991px){}
