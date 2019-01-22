@@ -7,6 +7,9 @@ $(document).ready(function() {
     $(".owl-carousel .owl-dots").css("margin-left", -((dotsCount * 16 + 20) / 2));
 
     $(window).on('scroll', function(){
-        
+        if($(this).scrollTop() > 200)
+            $('.menu-container').addClass('fixed');
+        else
+            $('.menu-container').removeClass('fixed');
     });
 });
