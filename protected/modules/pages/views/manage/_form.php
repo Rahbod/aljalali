@@ -19,10 +19,10 @@
 		<?php echo $form->error($model,'title'); ?>
 	</div>
 
-    <?php if($this->categorySlug == 'about'):?>
+    <?php if($this->categorySlug == 'about' || $this->categorySlug == 'footer'):?>
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'parent_id'); ?>
-		<?php echo $form->dropDownList($model,'parent_id', CHtml::listData(Pages::model()->findAll('category_id = 2 and parent_id IS NULL'),'id', 'title'),array('class' => 'form-control')); ?>
+		<?php echo $form->dropDownList($model,'parent_id', CHtml::listData(Pages::model()->findAll('category_id = :id and parent_id IS NULL',[':id' => $this->categoryId]),'id', 'title'),array('class' => 'form-control')); ?>
 		<?php echo $form->error($model,'parent_id'); ?>
 	</div>
     <?php endif;?>

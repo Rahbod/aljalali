@@ -1,28 +1,4 @@
-@media screen and (max-width: 992px) {
-    .contact-box .about-map-pic{
-        height: 300px;
-    }
-}
 @media screen and (max-width: 767px){
-    .page .header .container{
-        padding: 15px;
-    }
-    .footer #google-map{
-        position: relative;
-        display: block;
-        overflow: hidden;
-        height: 250px;
-        width: 100%;
-    }
-    .contact-form .col-lg-8{
-        padding: 0 15px;
-    }
-    .contact-box .about-map-pic{
-        height: 250px;
-    }
-    .contact-box{
-        padding: 0;
-    }
     .parallax-window{
         height: 60%;
     }
@@ -89,20 +65,17 @@
     .page .mobile-menu-trigger{
         float: right;
     }
-    .page > .container{
-        margin-top: 0;
-    }
     .page .top,
     .page-bg{
         height:350px;
     }
     .page .page-title{
-        top: 320px;
+        top: 340px;
         font-size: 40px;
         width: auto;
     }
     .page .price-box{
-        margin-top: 40px;
+        margin-top: 60px;
         width: 100%;
     }
     .page .price-box .item{
@@ -138,45 +111,6 @@
         margin-top: 50px;
     }
 }
-@media screen and (max-width: 370px){
-    .page .price-box .item{
-        padding: 15px 5px;
-        display: block;
-        overflow: hidden;
-    }
-}
-@media screen and (max-width: 340px){
-    .page .price-box{
-        width: auto;
-        float: none;
-        margin: 30px -15px 0;
-    }
-    .page .price-box .item{
-        text-align: center;
-        padding: 5px;
-    }
-}
-@media screen and (max-width: 300px){
-    .page .price-box .item span,
-    .page .price-box .item h3{
-        float: none;
-    }
-    .page .price-box{
-        margin: 20px -15px 0;
-    }
-}
 @media (min-width: 768px) and (max-width: 991px){}
 @media (min-width: 992px) and (max-width: 1200px){}
-
-@media screen and (max-width: 400px){
-    .contact-box .contact-form{
-        padding: 15px;
-    }
-    .captcha-container input,
-    .captcha-container a{
-        display: block;
-        width: 100% !important;
-        margin-bottom: 10px;
-    }
-}
 @media (min-width: 1200px){}

@@ -7,7 +7,7 @@ if($model->value)
 ?>
 <div class="box box-primary">
     <div class="box-header with-border">
-        <h3 class="box-title">تنظیمات عمومی</h3>
+        <h3 class="box-title">تنظیمات شبکه های اجتماعی</h3>
     </div>
     <div class="box-body">
         <?php $this->renderPartial('//partial-views/_flashMessage')?>
@@ -19,16 +19,8 @@ if($model->value)
         ));
         ?>
         <div class="form-group">
-            <?php echo CHtml::label('لینک واتس اپ',''); ?>
-            <?php echo CHtml::textField("SiteSetting[social_links][whatsapp]",($social_links && isset($social_links['whatsapp'])?$social_links['whatsapp']:''),array('size'=>60,'class'=>'form-control text-left ltr')); ?>
-        </div>
-        <div class="form-group">
             <?php echo CHtml::label('لینک فیسبوک',''); ?>
             <?php echo CHtml::textField("SiteSetting[social_links][facebook]",($social_links && isset($social_links['facebook'])?$social_links['facebook']:''),array('size'=>60,'class'=>'form-control text-left ltr')); ?>
-        </div>
-        <div class="form-group">
-            <?php echo CHtml::label('لینک تلگرام',''); ?>
-            <?php echo CHtml::textField("SiteSetting[social_links][telegram]",($social_links && isset($social_links['telegram'])?$social_links['telegram']:''),array('size'=>60,'class'=>'form-control text-left ltr')); ?>
         </div>
         <div class="form-group">
             <?php echo CHtml::label('لینک اینستاگرام',''); ?>
@@ -37,6 +29,10 @@ if($model->value)
         <div class="form-group">
             <?php echo CHtml::label('لینک توییتر',''); ?>
             <?php echo CHtml::textField("SiteSetting[social_links][twitter]",($social_links && isset($social_links['twitter'])?$social_links['twitter']:''),array('size'=>60,'class'=>'form-control text-left ltr')); ?>
+        </div>
+        <div class="form-group">
+            <?php echo CHtml::label('لینک گوگل',''); ?>
+            <?php echo CHtml::textField("SiteSetting[social_links][google]",($social_links && isset($social_links['google'])?$social_links['google']:''),array('size'=>60,'class'=>'form-control text-left ltr')); ?>
         </div>
 
         <div class="form-group buttons">

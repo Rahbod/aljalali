@@ -54,7 +54,7 @@
         <?php echo $form->error($model,'image'); ?>
         <div class="uploader-message error"></div>
 	</div>
-
+<? /*
     <div class="form-group">
 		<?php echo $form->labelEx($model,'mobile_image'); ?>
 		<?php $this->widget('ext.dropZoneUploader.dropZoneUploader', array(
@@ -82,6 +82,7 @@
         <?php echo $form->error($model,'mobile_image'); ?>
         <div class="uploader-message error"></div>
 	</div>
+*/?>
 
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'link'); ?>

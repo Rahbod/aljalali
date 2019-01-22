@@ -19,7 +19,7 @@
 
     <?php
     foreach($model as $field):
-        if($field->name != 'social_links'&& $field->name != 'price' && $field->name != 'foreign_price'):
+        if($field->name != 'social_links'):
             if($field->name == 'keywords'):?>
                 <div class="form-group">
                     <?php echo CHtml::label($field->title,''); ?>
@@ -32,19 +32,19 @@
                     <p style="clear: both;font-size: 12px;color: #aaa">عبارت را وارد کرده و اینتر بزنید.</p>
                     <?php echo $form->error($field,'name'); ?>
                 </div>
-            <?php elseif($field->name == 'banner'):?>
+            <?php elseif($field->name == 'footer_logo'):?>
                 <div class="form-group">
                     <?php echo CHtml::label($field->title,''); ?><br>
                     <?php $this->widget('ext.dropZoneUploader.dropZoneUploader', array(
-                        'id' => 'uploaderBanner',
+                        'id' => 'uploaderLogo',
                         'model' => $field,
-                        'name' => 'banner',
+                        'name' => 'footer_logo',
                         'maxFiles' => 1,
-                        'maxFileSize' => 0.5, //MB
+                        'maxFileSize' => 1, //MB
                         'url' => $this->createUrl('upload'),
                         'deleteUrl' => $this->createUrl('deleteUpload'),
                         'acceptedFiles' => '.jpg, .jpeg, .png',
-                        'serverFiles' => $field->value ? new UploadedFiles('uploads/banner', $field->value) : [],
+                        'serverFiles' => $field->value ? new UploadedFiles($this->settingPath, $field->value) : [],
                         'onSuccess' => '
                                 var responseObj = JSON.parse(res);
                                 if(responseObj.status){
@@ -58,35 +58,39 @@
                             ',
                     )); ?>
                     <div class="uploader-message error"></div>
-                    <p><small>اندازه مناسب 1600 در 1024 می باشد.</small></p>
+                    <p><small>* فرمت قابل قبول jpg, png می باشد.</small>
+                        <br>
+                        <small>* حداکثر حجم فیلم 1 مگابیت می باشد.</small></p>
                 </div>
-            <?php elseif($field->name == 'map_pic'):?>
+            <?php elseif($field->name == 'footer_video'):?>
                 <div class="form-group">
                     <?php echo CHtml::label($field->title,''); ?><br>
                     <?php $this->widget('ext.dropZoneUploader.dropZoneUploader', array(
-                        'id' => 'uploaderMap',
+                        'id' => 'uploaderVideo',
                         'model' => $field,
-                        'name' => 'map_pic',
+                        'name' => 'footer_video',
                         'maxFiles' => 1,
-                        'maxFileSize' => 0.5, //MB
-                        'url' => $this->createUrl('uploadMap'),
-                        'deleteUrl' => $this->createUrl('deleteMap'),
-                        'acceptedFiles' => '.jpg, .jpeg, .png',
-                        'serverFiles' => $field->value ? new UploadedFiles('uploads/map', $field->value) : [],
+                        'maxFileSize' => 50, //MB
+                        'url' => $this->createUrl('uploadVideo'),
+                        'deleteUrl' => $this->createUrl('deleteVideo'),
+                        'acceptedFiles' => '.mp4',
+                        'serverFiles' => $field->value ? new UploadedFiles($this->settingPath, $field->value) : [],
                         'onSuccess' => '
-                                var responseObj = JSON.parse(res);
-                                if(responseObj.status){
-                                    {serverName} = responseObj.fileName;
-                                    $(".uploader-map-message").html("");
-                                }
-                                else{
-                                    $(".uploader-map-message").html(responseObj.message);
-                                    this.removeFile(file);
-                                }
-                            ',
+                            var responseObj = JSON.parse(res);
+                            if(responseObj.status){
+                                {serverName} = responseObj.fileName;
+                                $(".uploader-map-message").html("");
+                            }
+                            else{
+                                $(".uploader-map-message").html(responseObj.message);
+                                this.removeFile(file);
+                            }
+                        ',
                     )); ?>
                     <div class="uploader-map-message error"></div>
-                    <p><small>اندازه مناسب 900 در 380 می باشد.</small></p>
+                    <p><small>* فرمت قابل قبول mp4 می باشد.</small>
+                        <br>
+                        <small>* حداکثر حجم فیلم 50 مگابیت می باشد.</small></p>
                 </div>
             <?php else:?>
                 <div class="form-group">

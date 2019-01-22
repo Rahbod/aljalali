@@ -104,4 +104,13 @@ class Slideshow extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+
+    /**
+     * @return Slideshow[]
+     */
+    public static function getSlides()
+    {
+        return self::model()->findAll();
+	}
 }

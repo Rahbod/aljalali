@@ -11,6 +11,7 @@
  * @property string $image
  * @property string $order
  * @property string $parent_id
+ * @property string $url
  *
  *
  * The followings are the available model relations:
@@ -109,10 +110,10 @@ class Pages extends SortableCActiveRecord
         $criteria->compare('summary', $this->summary, true);
         $criteria->compare('category_id', $this->category_id, true);
 
-        if($this->category_id == 2)
+        if ($this->category_id == 2 || $this->category_id == 4)
             $criteria->addCondition('parent_id IS NOT NULL');
 
-        $criteria->order= 't.order';
+        $criteria->order = 't.order';
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
@@ -200,5 +201,30 @@ class Pages extends SortableCActiveRecord
         if ($model)
             return Yii::app()->createUrl("/page/" . urlencode($model->title));
         return null;
+    }
+
+    /**
+     * @param $slug
+     * @param null $condition
+     * @param array $params
+     * @return Pages[]
+     */
+    public static function getPages($slug, $condition = null, $params = [])
+    {
+        $cr = new CDbCriteria();
+        $cr->compare('category.slug', $slug);
+        $cr->with = array('category');
+        if ($condition) {
+            $cr->addCondition($condition);
+            if ($params)
+                $cr->params = $cr->params + $params;
+        }
+        $cr->order = 't.order';
+        return self::model()->findAll($cr);
+    }
+
+    public function getUrl()
+    {
+        return Yii::app()->createUrl('/pages/' . $this->id . '/' . urlencode($this->title));
     }
 }

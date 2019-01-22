@@ -99,7 +99,7 @@ class PagesManageController extends Controller
         $this->pageBanner = $model->image ?: null;
         $this->categorySlug = $model->category->slug;
         $this->categoryId = $model->category->id;
-        $this->pageHeader = $model->en_title;
+        $this->pageHeader = $model->title;
         $this->render('//site/pages/page', array(
             'model' => $model,
         ));

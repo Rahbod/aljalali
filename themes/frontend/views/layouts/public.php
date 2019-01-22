@@ -6,9 +6,9 @@
 <html lang="fa_ir">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="theme-color" content="#de400b" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--    <meta name="theme-color" content="#de400b" />-->
     <meta name="csrf-token" content="<?= Yii::app()->request->csrfToken ?>" />
     <meta name="keywords" content="<?= $this->keywords ?>">
     <meta name="description" content="<?= $this->description?> ">
@@ -24,20 +24,16 @@
 
     $cs->registerCssFile($baseUrl.'/css/bootstrap.min.css');
     $cs->registerCssFile($baseUrl.'/css/bootstrap-rtl.min.css');
-    $cs->registerCssFile($baseUrl.'/css/bootstrap-theme.css?2.1'.time());
-    $cs->registerCssFile($baseUrl.'/css/responsive-theme.css?2.1'.time());
+    $cs->registerCssFile($baseUrl.'/css/bootstrap-theme.css');
+    $cs->registerCssFile($baseUrl.'/css/responsive-theme.css');
 
     $cs->registerScriptFile($baseUrl.'/js/bootstrap.min.js', CClientScript::POS_END);
-    $cs->registerScriptFile($baseUrl.'/js/parallax.min.js?2.1', CClientScript::POS_END);
-    $cs->registerScriptFile($baseUrl.'/js/jquery.script.js?2.1'.time(), CClientScript::POS_END);
+    $cs->registerScriptFile($baseUrl.'/js/jquery.script.js', CClientScript::POS_END);
     ?>
 </head>
 <body>
-    <?php $this->renderPartial('//partial-views/_header');?>
-    <div class="home-bottom">
-        <?php echo $content;?>
-        <?php $this->renderPartial('//partial-views/_footer');?>
-        <?php $this->renderPartial('//partial-views/_copyright');?>
-    </div>
+<?php $this->renderPartial('//partial-views/_header');?>
+<?php echo $content;?>
+<?php $this->renderPartial('//partial-views/_footer');?>
 </body>
 </html>

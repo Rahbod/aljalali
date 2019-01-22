@@ -22,6 +22,7 @@ return array(
 		'application.modules.setting.models.*',
 		'application.modules.users.models.*',
 		'application.modules.admins.models.*',
+		'application.modules.slideshow.models.*',
 	),
 
 	'modules'=>array(
@@ -45,9 +46,13 @@ return array(
 
 	// application components
 	'components'=>array(
-		'request'=>array(
-			'enableCsrfValidation'=>true,
-		),
+        'request'=>array(
+            'class' => 'YMHttpRequest',
+            'enableCsrfValidation'=>true,
+            'noValidationRoutes'=>array(
+//                'setting/manage/uploadVideo',
+            ),
+        ),
 		'userCounter' => array(
 			'class' => 'application.components.UserCounter',
 			'tableUsers' => 'ym_counter_users',
@@ -72,8 +77,8 @@ return array(
 			'showScriptName'=>false,
 			'appendParams'=>true,
 			'rules'=>array(
-				'/page/<title:(.*)>'=>'/pages/manage/view',
-				'/pages/<id:\d+>'=>'/pages/manage/view',
+//				'/page/<title:(.*)>'=>'/pages/manage/view',
+				'/pages/<id:\d+>/<title:(.*)>'=>'/pages/manage/view',
 				'<action:(about|contact|help|terms|search|faq)>' => 'site/<action>',
 				'<action:(logout|dashboard|googleLogin|login|register|changePassword|forgetPassword|profile|notifications|recoverPassword|bookmarks)>' => 'users/public/<action>',
 				'<module:\w+>/<id:\d+>'=>'<module>/public/view',
