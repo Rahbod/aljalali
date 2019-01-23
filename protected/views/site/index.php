@@ -67,7 +67,7 @@
             <?php
             $logo = SiteSetting::getOption('footer_logo');
             if($logo and is_file(Yii::getPathOfAlias('webroot').'/uploads/setting/'.$logo)): ?>
-                <img src="<?= Yii::app()->getBaseUrl(true).'/uploads/setting/'.$logo ?>">
+                <img src="<?= Yii::app()->getBaseUrl(true).'/uploads/setting/'.$logo ?>" class="hidden-xs">
             <?php endif; ?>
             <h2>لمعات من حياة الشهيد الجلالي <span>(قدس سره)</span><small>قناة كربلاء الفضائية</small></h2>
         </div>

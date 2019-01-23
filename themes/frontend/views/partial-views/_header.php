@@ -11,7 +11,7 @@ if($module == 'pages')
 <div class="top-section">
     <div class="container">
         <div class="header">
-            <div class="aya"></div>
+            <div class="aya hidden-xs"></div>
             <div class="search-container">
 <!--                <div class="input-group">-->
 <!--                    <input type="text" class="form-control" placeholder="بحث">-->
@@ -20,9 +20,9 @@ if($module == 'pages')
 <!--                    </div>-->
 <!--                </div>-->
             </div>
-            <div class="person-pic"></div>
-            <div class="name-pic"><a href="#"></a></div>
-            <div class="menu">
+            <div class="person-pic hidden-xs"></div>
+            <div class="name-pic hidden-xs"><a href="<?= Yii::app()->getBaseUrl(true) ?>"></a></div>
+            <div class="menu hidden-xs">
                 <ul>
                     <?php $menus = Pages::getPages('menu'); ?>
                     <?php foreach ($menus as $menu): ?>
@@ -31,14 +31,20 @@ if($module == 'pages')
                 </ul>
             </div>
         </div>
-        <div class="menu-container fixed hidden">
-            <div class="name-pic"><a href="#"></a></div>
-            <div class="menu">
-                <ul>
-                    <?php foreach ($menus as $menu): ?>
-                        <li<?= $module=='pages' && $action=='view' && isset($_GET['id']) && $_GET['id']==$menu->id?' class="active"':'' ?>><a href="<?= $menu->url ?>"><?= $menu->title ?></a></li>
-                    <?php endforeach;?>
-                </ul>
+
+
+        <div class="menu-container on-top">
+            <div class="container">
+                <div class="name-pic"><a href="<?= Yii::app()->getBaseUrl(true) ?>"></a></div>
+                <div class="mobile-menu-trigger visible-xs"></div>
+                <div class="overlay"></div>
+                <div class="menu">
+                    <ul>
+                        <?php foreach ($menus as $menu): ?>
+                            <li<?= $module=='pages' && $action=='view' && isset($_GET['id']) && $_GET['id']==$menu->id?' class="active"':'' ?>><a href="<?= $menu->url ?>"><?= $menu->title ?></a></li>
+                        <?php endforeach;?>
+                    </ul>
+                </div>
             </div>
         </div>
 
