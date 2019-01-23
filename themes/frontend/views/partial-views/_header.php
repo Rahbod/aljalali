@@ -8,7 +8,7 @@ $inner = false;
 if($module == 'pages')
     $inner = true;
 ?>
-<div class="top-section">
+<div class="top-section <?= $inner?'inner':'' ?>">
     <div class="container">
         <div class="header">
             <div class="aya hidden-xs"></div>

@@ -49,6 +49,10 @@ class PagesManageController extends Controller
     public function actions()
     {
         return array(
+            'captcha' => array(
+                'class' => 'CCaptchaAction',
+                'backColor' => 0xFFFFFF,
+            ),
             'upload' => array( // list image upload
                 'class' => 'ext.dropZoneUploader.actions.AjaxUploadAction',
                 'attribute' => 'image',
@@ -97,9 +101,12 @@ class PagesManageController extends Controller
 //        $model = $this->loadModel(trim(strip_tags($title)));
         $model = $this->loadModel($id);
         $this->pageBanner = $model->image ?: null;
+        $this->pageTitle = $model->title;
         $this->categorySlug = $model->category->slug;
         $this->categoryId = $model->category->id;
         $this->pageHeader = $model->title;
+        $this->keywords = $model->getKeywords();
+        $this->description = $model->getDescription();
         $this->render('//site/pages/page', array(
             'model' => $model,
         ));
