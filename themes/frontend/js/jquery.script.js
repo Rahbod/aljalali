@@ -1,10 +1,12 @@
 $(document).ready(function() {
-    $(".owl-carousel").owlCarousel({
-        items: 1
-    });
+    if($(".owl-carousel").length) {
+        $(".owl-carousel").owlCarousel({
+            items: 1
+        });
 
-    var dotsCount = $(".owl-carousel .owl-dot").length;
-    $(".owl-carousel .owl-dots").css("margin-left", -((dotsCount * 16 + 20) / 2));
+        var dotsCount = $(".owl-carousel .owl-dot").length;
+        $(".owl-carousel .owl-dots").css("margin-left", -((dotsCount * 16 + 20) / 2));
+    }
 
     $('.mobile-menu-trigger').on('click', function (e) {
         e.preventDefault();

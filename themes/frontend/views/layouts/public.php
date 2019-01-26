@@ -24,16 +24,17 @@
 
     $cs->registerCssFile($baseUrl.'/css/bootstrap.min.css');
     $cs->registerCssFile($baseUrl.'/css/bootstrap-rtl.min.css');
-    $cs->registerCssFile($baseUrl.'/css/bootstrap-theme.css');
-    $cs->registerCssFile($baseUrl.'/css/responsive-theme.css');
+    $cs->registerCssFile($baseUrl.'/css/bootstrap-theme.css?'.time());
+    $cs->registerCssFile($baseUrl.'/css/responsive-theme.css?'.time());
 
     $cs->registerScriptFile($baseUrl.'/js/bootstrap.min.js', CClientScript::POS_END);
-    $cs->registerScriptFile($baseUrl.'/js/jquery.script.js', CClientScript::POS_END);
+    $cs->registerScriptFile($baseUrl.'/js/jquery.script.js?'.time(), CClientScript::POS_END);
     ?>
 </head>
 <body>
 <?php $this->renderPartial('//partial-views/_header');?>
 <?php echo $content;?>
 <?php $this->renderPartial('//partial-views/_footer');?>
+<?php $this->renderPartial('//partial-views/_flashMessage', array('class' => 'abs-alert'))?>
 </body>
 </html>

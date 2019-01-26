@@ -82,6 +82,7 @@ if($map_model) {
             }'
         ),
     )); ?>
+    <input type="hidden" name="return" value="<?= Yii::app()->request->requestUri.'#contact-form' ?>">
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
             <div class="form-group">

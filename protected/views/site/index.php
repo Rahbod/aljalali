@@ -34,18 +34,20 @@
             <?php foreach ($services as $item): ?>
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 service-item">
                     <div class="content">
-                        <h4><?= $item->title ?></h4>
-                        <div class="cover">
-                            <div class="image-container">
-                                <div class="image-outer-align">
-                                    <div class="image-inner-align">
-                                        <?php if($item->image and is_file(Yii::getPathOfAlias('webroot').'/uploads/pages/'.$item->image)): ?>
-                                            <img src="<?= Yii::app()->getBaseUrl(true).'/uploads/pages/'.$item->image ?>">
-                                        <?php endif; ?>
+                        <a href="<?= $item->url ?>">
+                            <h4><?= $item->title ?></h4>
+                            <div class="cover">
+                                <div class="image-container">
+                                    <div class="image-outer-align">
+                                        <div class="image-inner-align">
+                                            <?php if($item->image and is_file(Yii::getPathOfAlias('webroot').'/uploads/pages/'.$item->image)): ?>
+                                                <img src="<?= Yii::app()->getBaseUrl(true).'/uploads/pages/'.$item->image ?>">
+                                            <?php endif; ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             <?php endforeach;?>

@@ -50,12 +50,13 @@ $prayer = Prayer::get()->response['items'][0];
                         'validateOnSubmit'=>true,
                         'afterValidate' => 'js: function(form, data, hasError){
                             if(hasError)
-                                $(".captcha-container a").click();
+                                $(".captcha a").click();
                             else
                                 return true;
                         }'
                     ),
                 )); ?>
+                <input type="hidden" name="return" value="<?= Yii::app()->request->requestUri.'#contact-form' ?>">
                     <div class="row">
                         <div class="form-row">
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -164,3 +165,9 @@ $prayer = Prayer::get()->response['items'][0];
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $(".captcha a").click();
+    })
+</script>

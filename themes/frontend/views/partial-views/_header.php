@@ -24,6 +24,7 @@ if($module == 'pages')
             <div class="name-pic hidden-xs"><a href="<?= Yii::app()->getBaseUrl(true) ?>"></a></div>
             <div class="menu hidden-xs">
                 <ul>
+                    <li<?= $controller=='site' && $action=='index'?' class="active"':'' ?>><a href="<?= Yii::app()->getBaseUrl(true)?>">الرئيسية</a></li>
                     <?php $menus = Pages::getPages('menu'); ?>
                     <?php foreach ($menus as $menu): ?>
                         <li<?= $module=='pages' && $action=='view' && isset($_GET['id']) && $_GET['id']==$menu->id?' class="active"':'' ?>><a href="<?= $menu->url ?>"><?= $menu->title ?></a></li>
@@ -40,6 +41,7 @@ if($module == 'pages')
                 <div class="overlay"></div>
                 <div class="menu">
                     <ul>
+                        <li<?= $controller=='site' && $action=='index'?' class="active"':'' ?>><a href="<?= Yii::app()->getBaseUrl(true)?>">الرئيسية</a></li>
                         <?php foreach ($menus as $menu): ?>
                             <li<?= $module=='pages' && $action=='view' && isset($_GET['id']) && $_GET['id']==$menu->id?' class="active"':'' ?>><a href="<?= $menu->url ?>"><?= $menu->title ?></a></li>
                         <?php endforeach;?>
