@@ -2,13 +2,19 @@
 /** @var $this Controller */
 /** @var $form CActiveForm */
 $prayer = Prayer::get()->response['items'][0];
+$hijriDate = HijriDate::get()->response;
 ?>
 
 
 <div class="prayer-time-section">
     <div class="container">
         <img src="<?= Yii::app()->theme->baseUrl. '/images/kabeh.png'?>">
-        <h3>الصلاة القادمة</h3>
+        <h3>الصلاة القادمة
+            <?php if(isset($hijriDate['data']['hijri'])):?>
+                <small><?php echo $hijriDate['data']['hijri']['day'].' '.$hijriDate['data']['hijri']['month']['ar'].', '.$hijriDate['data']['hijri']['year'].' هـ'?></small>
+                <small><?php echo $hijriDate['data']['gregorian']['year'].$hijriDate['data']['gregorian']['month']['en'].$hijriDate['data']['gregorian']['day'].' مـ'?></small>
+            <?php endif;?>
+        </h3>
         <ul class="times">
             <li>
                 <div class="title">فجر</div>

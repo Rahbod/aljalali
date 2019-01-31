@@ -12,14 +12,14 @@ if($module == 'pages')
     <div class="container">
         <div class="header">
             <div class="aya hidden-xs"></div>
-            <div class="search-container">
+<!--            <div class="search-container">-->
 <!--                <div class="input-group">-->
 <!--                    <input type="text" class="form-control" placeholder="بحث">-->
 <!--                    <div class="input-group-btn">-->
 <!--                        <button class="btn btn-default" type="submit"><i class="search-icon"></i></button>-->
 <!--                    </div>-->
 <!--                </div>-->
-            </div>
+<!--            </div>-->
             <div class="person-pic hidden-xs"></div>
             <div class="name-pic hidden-xs"><a href="<?= Yii::app()->getBaseUrl(true) ?>"></a></div>
             <div class="menu hidden-xs">

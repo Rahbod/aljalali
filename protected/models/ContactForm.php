@@ -37,12 +37,12 @@ class ContactForm extends CFormModel
 	public function attributeLabels()
 	{
 		return array(
-			'name' => 'نام و نام خانوادگی',
-			'email' => 'پست الکترونیک',
-			'tel' => 'شماره تماس',
+			'name' => 'الاسم الکامل',
+			'email' => 'البريد الإلكتروني',
+			'tel' => 'رقم الهاتف المحمول',
 			'subject' => 'موضوع',
-			'body' => 'متن پیام',
-			'department_id' => 'بخش مورد نظر',
+			'body' => 'النص المرغوب',
+			'department_id' => 'القسم المطلوب',
 			'verifyCode'=>'کد امنیتی',
 		);
 	}
