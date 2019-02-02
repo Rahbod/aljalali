@@ -21,13 +21,20 @@ if($module == 'pages')
 <!--                </div>-->
 <!--            </div>-->
             <div class="person-pic hidden-xs"></div>
-            <div class="name-pic hidden-xs"><a href="<?= Yii::app()->getBaseUrl(true) ?>"></a></div>
-            <div class="menu hidden-xs">
+            <div class="name-pic hidden-xs"><a href="<?= Yii::app()->getBaseUrl(true) ?>"></a></div><div class="menu hidden-xs">
                 <ul>
                     <li<?= $controller=='site' && $action=='index'?' class="active"':'' ?>><a href="<?= Yii::app()->getBaseUrl(true)?>">الرئيسية</a></li>
-                    <?php $menus = Pages::getPages('menu'); ?>
+                    <?php $menus = Pages::getPages('menu', 'parent_id IS NULL'); ?>
                     <?php foreach ($menus as $menu): ?>
-                        <li<?= $module=='pages' && $action=='view' && isset($_GET['id']) && $_GET['id']==$menu->id?' class="active"':'' ?>><a href="<?= $menu->url ?>"><?= $menu->title ?></a></li>
+                        <li class="dropdown<?= $module=='pages' && $action=='view' && isset($_GET['id']) && $_GET['id']==$menu->id?' active':'' ?>">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown"><?= $menu->title ?></a>
+                            <ul class="dropdown-menu">
+                                <?php $submenus = Pages::getPages('menu', 'parent_id = :id', [':id' => $menu->id]);
+                                foreach ($submenus as $submenu): ?>
+                                <li><a href="<?= $submenu->url ?>"><?= $submenu->title ?></a></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </li>
                     <?php endforeach;?>
                 </ul>
             </div>
@@ -43,7 +50,15 @@ if($module == 'pages')
                     <ul>
                         <li<?= $controller=='site' && $action=='index'?' class="active"':'' ?>><a href="<?= Yii::app()->getBaseUrl(true)?>">الرئيسية</a></li>
                         <?php foreach ($menus as $menu): ?>
-                            <li<?= $module=='pages' && $action=='view' && isset($_GET['id']) && $_GET['id']==$menu->id?' class="active"':'' ?>><a href="<?= $menu->url ?>"><?= $menu->title ?></a></li>
+                            <li class="dropdown<?= $module=='pages' && $action=='view' && isset($_GET['id']) && $_GET['id']==$menu->id?' active':'' ?>">
+                                <a class="dropdown-toggle" href="#" data-toggle="dropdown"><?= $menu->title ?></a>
+                                <ul class="dropdown-menu">
+                                    <?php $submenus = Pages::getPages('menu', 'parent_id = :id', [':id' => $menu->id]);
+                                    foreach ($submenus as $submenu): ?>
+                                        <li><a href="<?= $submenu->url ?>"><?= $submenu->title ?></a></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </li>
                         <?php endforeach;?>
                     </ul>
                 </div>
