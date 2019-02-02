@@ -109,6 +109,12 @@ class Pages extends SortableCActiveRecord
         $criteria->compare('title', $this->title, true);
         $criteria->compare('summary', $this->summary, true);
         $criteria->compare('category_id', $this->category_id, true);
+        $criteria->compare('parent_id', $this->parent_id);
+        if(isset($_GET['parent']))
+            $criteria->addCondition('parent_id IS NULL');
+        else
+            $criteria->addCondition('parent_id IS NOT NULL');
+
 
         if ($this->category_id == 2 || $this->category_id == 4)
             $criteria->addCondition('parent_id IS NOT NULL');

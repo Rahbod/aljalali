@@ -129,7 +129,7 @@ class PagesManageController extends Controller
 			if($model->save()){
 			    $image->move($this->imagePath);
 				Yii::app()->user->setFlash('success' ,'اطلاعات با موفقیت ثبت شد.');
-				$this->redirect(array('manage/admin/slug/' . $this->categorySlug));
+				$this->redirect(array('manage/admin/slug/' . $this->categorySlug.(isset($_GET['parent'])?'/?parent=true':'')));
 			}else
 				Yii::app()->user->setFlash('failed' ,'در ثبت اطلاعات خطایی رخ داده است! لطفا مجددا تلاش کنید.');
 		}

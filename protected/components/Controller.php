@@ -112,8 +112,14 @@ class Controller extends AuthController
                     'url' => array('/admins/dashboard')
                 ),
                 array(
-                    'label' => '<i class="fa fa-bars"></i><span>صفحات منو</span>',
-                    'url' => array('/pages/manage/admin/slug/menu')
+                    'label' => '<i class="fa fa-bars"></i><span>صفحات منو</span> <i class="fa fa-angle-left pull-left"></i>',
+                    'url' => '#',
+                    'itemOptions' => array('class' => 'treeview', 'tabindex' => "-1"),
+                    'submenuOptions' => array('class' => 'treeview-menu'),
+                    'items' => array(
+                        array('label' => '<i class="fa fa-circle-o"></i>دسته بندی ها', 'url' => Yii::app()->createUrl('/pages/manage/admin/slug/menu?parent=true')),
+                        array('label' => '<i class="fa fa-circle-o"></i>مدیریت صفحات', 'url' => Yii::app()->createUrl('/pages/manage/admin/slug/menu')),
+                    )
                 ),
                 array(
                     'label' => '<i class="fa fa-user"></i><span>درباره شهید</span>',
