@@ -33,7 +33,7 @@ a:active {
 
 .top-section{
     width: 100%;
-    height:800px;
+    height:656px;
     background: url("../images/sec-top-bg.jpg") center;
     background-size: cover;
     overflow: hidden;
@@ -75,9 +75,9 @@ a:active {
 }
 .person-pic{
     background: url("../images/aljalali.png") no-repeat center;
-    background-size: 263px 230px;
-    width: 263px;
-    height: 230px;
+    background-size: 245px 206px;
+    width: 245px;
+    height: 206px;
     position: absolute;
     right:0;
     bottom: 0;
@@ -88,9 +88,9 @@ a:active {
     right:230px;
     bottom: 50px;
     background: url("../images/name.png") no-repeat center;
-    background-size: 331px 106px;
-    width: 331px;
-    height:106px;
+    background-size: 300px 96px;
+    width: 300px;
+    height:96px;
     z-index:2;
 }
 .menu-container .name-pic{
@@ -206,7 +206,7 @@ a:active {
 .slider .slide-item{
     position: relative;
     width: 100%;
-    height:545px;
+    height:450px;
     overflow: hidden;
 }
 .image-container{
@@ -227,11 +227,12 @@ a:active {
     vertical-align: middle;
 }
 .slider .slide-item img{
-    max-height: 545px;
+    max-height: 450px;
     /*max-width: 100%;*/
 }
 .slider.owl-carousel .owl-item img{
     width: auto !important;
+    display: inline;
 }
 .slider .owl-dots{
     position: absolute;
@@ -282,6 +283,11 @@ a:active {
     overflow: hidden;
     box-shadow: 0 0 5px rgba(1,1,1,0.06);
     min-height: 215px;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
 }
 .about-section .about-item .content:hover{
     color: #fff;
@@ -357,6 +363,12 @@ a:active {
     margin: 0 0 15px;
     font-weight: bold;
     color: #222;
+
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
 }
 .service-item .content{
     padding: 15px 5px 5px;
@@ -368,9 +380,10 @@ a:active {
     -o-transition: all 0.4s;
     transition: all 0.4s;
 }
-.service-item .content:hover,
-.service-item .content:hover h4{
+.service-item .content:hover{
     background: #80ab3c;
+}
+.service-item .content:hover h4{
     color: #fff;
 }
 .video-section{
@@ -429,7 +442,11 @@ a:active {
     color: #fccf35;
     font-weight: bold;
     line-height:50px;
-    margin: 63px 20px 63px 0;
+    margin: 33px 20px 33px 0;
+}
+.prayer-time-section h3 small{
+    display: block;
+    line-height:30px;
 }
 .prayer-time-section .times{
     float: left;
