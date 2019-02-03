@@ -17,7 +17,7 @@ $this->menu=array(
     <div class="container text-center">
         <div class="page-title"><h3 class="text-right">گالری تصاویر</h3></div>
         <div class="clearfix"></div>
-        <div class="page-text" style="width: 100%">
+        <div class="page-text" style="width: 100%;overflow: visible">
             <ul class="nav nav-pills gallery-nav text-right">
             <?php $i=0;foreach ($categories as $category):$i++; ?>
                 <li<?= $i==1?' class="active"':'' ?>><a href="#" data-toggle="tab" data-target="#category-<?= $category->id ?>"><?= $category->title ?></a></li>
@@ -25,15 +25,18 @@ $this->menu=array(
             </ul>
             <div class="tab-content  text-right">
                 <?php $i=0;foreach ($categories as $category):$i++; ?>
-                    <div class="tab-pane fade <?= $i==1?'active in':''?>" id="category-<?= $category->id ?>">
+                    <div class="tab-pane gallery-list fade <?= $i==1?'active in':''?>" id="category-<?= $category->id ?>">
                         <?foreach ($category->items as $item):
                             if(!$item->image|| !is_file(Yii::getPathOfAlias('webroot')."/{$this->imagePath}/{$item->image}")) continue;?>
                         <div class="gallery-item">
-                            <div class="gallery-image">
-                                <img src="<?= Yii::app()->getBaseUrl(true)."/{$this->imagePath}/{$item->image}" ?>" alt="<?= $item->title ?>" width="200px" height="200px">
-                            </div>
-                            <div class="gallery-title"><?= $item->title ?></div>
-                            <div class="gallery-description hidden"><?= $item->description ?></div>
+                            <a href="#">
+                                <div class="gallery-image">
+                                    <img src="<?= Yii::app()->getBaseUrl(true)."/{$this->imagePath}/{$item->image}" ?>" alt="<?= $item->title ?>" width="192px" height="192px">
+                                </div>
+                                <div class="gallery-title"><?= $item->title ?></div>
+                                <div class="gallery-overlay"></div>
+                                <div class="gallery-description hidden"><?= $item->description ?></div>
+                            </a>
                         </div>
                         <?endforeach;?>
                     </div>
