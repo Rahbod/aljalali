@@ -15,10 +15,7 @@ $this->menu=array(
 $baseUrl = Yii::app()->theme->baseUrl;
 $cs = Yii::app()->clientScript;
 $cs->registerCssFile($baseUrl.'/css/lightbox.min.css');
-$cs->registerScriptFile($baseUrl.'/js/lightbox.min.js', CClientScript::POS_LOAD);
-$cs->registerScript('light-box', '
-    
-', CClientScript::POS_LOAD);
+$cs->registerScriptFile($baseUrl.'/js/lightbox.min.js', CClientScript::POS_END);
 ?>
 
 <div class="context">

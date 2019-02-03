@@ -1,4 +1,10 @@
 @media screen and (max-width: 767px){
+    .gallery-list{
+        text-align: center;
+    }
+    .gallery-item{
+        float: none;
+    }
     .top-section{
         height:349px;
     }

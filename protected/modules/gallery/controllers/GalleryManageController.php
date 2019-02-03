@@ -16,7 +16,7 @@ class GalleryManageController extends Controller
 	public function filters()
 	{
 		return array(
-            'checkAccess - upload, deleteUpload, index'
+            'checkAccess - upload, deleteUpload, index, captcha'
 		);
 	}
 
@@ -29,6 +29,7 @@ class GalleryManageController extends Controller
             'frontend'=>array(
                 'view',
                 'index',
+                'captcha',
             ),
             'backend' => array(
                 'create',
