@@ -80,6 +80,7 @@ return array(
 			'appendParams'=>true,
 			'rules'=>array(
 //				'/page/<title:(.*)>'=>'/pages/manage/view',
+				'gallery'=>'gallery/manage/index',
 				'/pages/<id:\d+>/<title:(.*)>'=>'/pages/manage/view',
 				'<action:(about|contact|help|terms|search|faq)>' => 'site/<action>',
 				'<action:(logout|dashboard|googleLogin|login|register|changePassword|forgetPassword|profile|notifications|recoverPassword|bookmarks)>' => 'users/public/<action>',

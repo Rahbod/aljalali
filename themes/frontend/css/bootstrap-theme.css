@@ -42,7 +42,7 @@ a:active {
 }
 .header{
     position: relative;
-    padding-top: 170px;
+    padding-top: 218px;
 }
 .header .aya{
     background: url("../images/aya.png") no-repeat center;
@@ -151,7 +151,7 @@ a:active {
 .header .menu>ul >li{
     list-style: none;
     float: right;
-    margin-left: 15px;
+    margin-left: 5px;
 }
 .menu-container .menu>ul>li{
     height:70px;
@@ -162,7 +162,7 @@ a:active {
     padding: 10px 5px;
     display: block;
     position: relative;
-    font-size: 12px;
+    font-size: 11px;
 }
 .menu-container .menu >ul>li >a{
     line-height:50px;
@@ -806,4 +806,13 @@ a:active {
 
 .dropdown.open .dropdown-menu{
     display: block;
+}
+
+.gallery-nav a{
+    padding: 4px 15px !important;
+    border-radius: 0 !important;
+    font-size: 12px;
+}
+.gallery-nav{
+    margin-bottom: 30px;
 }

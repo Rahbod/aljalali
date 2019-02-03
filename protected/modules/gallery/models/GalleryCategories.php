@@ -7,6 +7,8 @@
  * @property string $id
  * @property string $title
  * @property string $order
+ *
+ * @property Gallery[] $items
  */
 class GalleryCategories extends SortableCActiveRecord
 {

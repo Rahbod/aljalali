@@ -5,7 +5,7 @@ $module = $this->action->controller->module?$this->action->controller->module->i
 $action = $this->action->id;
 
 $inner = false;
-if($module == 'pages')
+if($module)
     $inner = true;
 ?>
 <div class="top-section <?= $inner?'inner':'' ?>">
@@ -44,6 +44,7 @@ if($module == 'pages')
                             <?php endif; ?>
                         </li>
                     <?php endforeach;?>
+                    <li<?= $module=='gallery' && $action=='index'?' class="active"':'' ?>><a href="<?= $this->createUrl('/gallery')?>">حقل الصور</a></li>
                 </ul>
             </div>
         </div>
@@ -76,6 +77,7 @@ if($module == 'pages')
                                 <?php endif; ?>
                             </li>
                         <?php endforeach;?>
+                        <li<?= $module=='gallery' && $action=='index'?' class="active"':'' ?>><a href="<?= $this->createUrl('/gallery')?>">حقل الصور</a></li>
                     </ul>
                 </div>
             </div>

@@ -16,7 +16,7 @@ class GalleryManageController extends Controller
 	public function filters()
 	{
 		return array(
-            'checkAccess - upload, deleteUpload'
+            'checkAccess - upload, deleteUpload, index'
 		);
 	}
 
@@ -27,10 +27,10 @@ class GalleryManageController extends Controller
     {
         return array(
             'frontend'=>array(
-                'view'
+                'view',
+                'index',
             ),
             'backend' => array(
-                'index',
                 'create',
                 'update',
                 'admin',
@@ -45,6 +45,10 @@ class GalleryManageController extends Controller
     public function actions()
     {
         return array(
+            'captcha' => array(
+                'class' => 'CCaptchaAction',
+                'backColor' => 0xFFFFFF,
+            ),
             'upload' => array( // list image upload
                 'class' => 'ext.dropZoneUploader.actions.AjaxUploadAction',
                 'attribute' => 'image',
@@ -156,6 +160,8 @@ class GalleryManageController extends Controller
 	 */
 	public function actionIndex()
 	{
+	    Yii::app()->theme = 'frontend';
+	    $this->layout='//layouts/inner';
 		$dataProvider=new CActiveDataProvider('Gallery');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
