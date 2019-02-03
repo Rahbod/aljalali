@@ -38,11 +38,11 @@ a:active {
     background-size: cover;
 }
 .top-section.inner{
-    height:255px;
+    height:207px;
 }
 .header{
     position: relative;
-    padding-top: 218px;
+    padding-top: 170px;
 }
 .header .aya{
     background: url("../images/aya.png") no-repeat center;
@@ -160,9 +160,13 @@ a:active {
 .header .menu >ul>li >a{
     color: #fff;
     padding: 10px 5px;
+    line-height: 17px;
     display: block;
     position: relative;
     font-size: 11px;
+}
+.header .menu .dropdown-menu{
+    margin-top: 0;
 }
 .menu-container .menu >ul>li >a{
     line-height:50px;
