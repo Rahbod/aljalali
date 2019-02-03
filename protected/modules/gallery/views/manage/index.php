@@ -2,6 +2,7 @@
 /* @var $this GalleryManageController */
 /* @var $dataProvider CActiveDataProvider */
 /* @var $categories GalleryCategories[] */
+/* @var $cs CClientScript */
 $categories = GalleryCategories::model()->findAll(array('order' => 't.order'));
 $this->breadcrumbs=array(
 	'Galleries',
@@ -11,6 +12,13 @@ $this->menu=array(
 	array('label'=>'افزودن ', 'url'=>array('create')),
 	array('label'=>'مدیریت ', 'url'=>array('admin')),
 );
+$baseUrl = Yii::app()->theme->baseUrl;
+$cs = Yii::app()->clientScript;
+$cs->registerCssFile($baseUrl.'/css/lightbox.min.css');
+$cs->registerScriptFile($baseUrl.'/js/lightbox.min.js', CClientScript::POS_LOAD);
+$cs->registerScript('light-box', '
+    
+', CClientScript::POS_LOAD);
 ?>
 
 <div class="context">
@@ -29,9 +37,11 @@ $this->menu=array(
                         <?foreach ($category->items as $item):
                             if(!$item->image|| !is_file(Yii::getPathOfAlias('webroot')."/{$this->imagePath}/{$item->image}")) continue;?>
                         <div class="gallery-item">
-                            <a href="#">
+                            <a href="<?= Yii::app()->getBaseUrl(true)."/{$this->imagePath}/{$item->image}" ?>"
+                               data-lightbox="gallery-<?= $category->id ?>"
+                               data-title="<?= $item->title ?>">
                                 <div class="gallery-image">
-                                    <img src="<?= Yii::app()->getBaseUrl(true)."/{$this->imagePath}/{$item->image}" ?>" alt="<?= $item->title ?>" width="192px" height="192px">
+                                    <img src="<?= Yii::app()->getBaseUrl(true)."/{$this->imagePath}/thumbs/200x200/{$item->image}" ?>" alt="<?= $item->title ?>" width="192px" height="192px">
                                 </div>
                                 <div class="gallery-title"><?= $item->title ?></div>
                                 <div class="gallery-overlay"></div>

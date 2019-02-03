@@ -836,6 +836,7 @@ a:active {
     -webkit-box-shadow: 0 0 8px #00000040;
     -moz-box-shadow: 0 0 8px #00000040;
     box-shadow: 0 0 8px #00000040;
+    overflow: hidden;
 }
 
 .gallery-item .gallery-title{
@@ -892,4 +893,20 @@ a:active {
 .gallery-item:hover .gallery-overlay{
     opacity: 1;
     visibility: visible;
+}
+.gallery-image{
+    position: relative;
+}
+.gallery-item .gallery-image img{
+    -webkit-transition: all .22s cubic-bezier(.694, .048, .335, 1) 0s;
+    -moz-transition: all .22s cubic-bezier(.694, .048, .335, 1) 0s;
+    -o-transition: all .22s cubic-bezier(.694, .048, .335, 1) 0s;
+    transition: all .22s cubic-bezier(.694, .048, .335, 1) 0s;
+}
+.gallery-item:hover .gallery-image img{
+    -webkit-transform:scale(1.2);
+    -moz-transform:scale(1.2);
+    -ms-transform:scale(1.2);
+    -o-transform: scale(1.2);
+    transform:scale(1.2);
 }

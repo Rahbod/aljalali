@@ -30,12 +30,12 @@ if($module)
                             <?php if(!empty($menu->summary)): ?>
                                 <a href="<?= $menu->getUrl() ?>"><?= $menu->title ?></a>
                             <?php else: ?>
-                                <a class="dropdown-toggle" href="#" data-toggle="dropdown"><?= $menu->title ?></a>
+                                <a class="dropdown-toggle" href="#menu-sub-<?= $menu->id ?>" data-toggle="dropdown"><?= $menu->title ?></a>
                                 <?php
                                 $submenus = Pages::getPages('menu', 'parent_id = :id', [':id' => $menu->id]);
                                 if($submenus):
                                     ?>
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu" id="menu-sub-<?= $menu->id ?>">
                                         <?php foreach ($submenus as $submenu): ?>
                                             <li><a href="<?= $submenu->url ?>"><?= $submenu->title ?></a></li>
                                         <?php endforeach; ?>
@@ -63,12 +63,12 @@ if($module)
                                 <?php if(!empty($menu->summary)): ?>
                                     <a href="<?= $menu->getUrl() ?>"><?= $menu->title ?></a>
                                 <?php else: ?>
-                                    <a class="dropdown-toggle" href="#"><?= $menu->title ?></a>
+                                    <a class="dropdown-toggle" href="#menu-container-sub-<?= $menu->id ?>" data-toggle="dropdown"><?= $menu->title ?></a>
                                     <?php
                                     $submenus = Pages::getPages('menu', 'parent_id = :id', [':id' => $menu->id]);
                                     if($submenus):
                                     ?>
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu" id="menu-container-sub-<?= $menu->id ?>">
                                         <?php foreach ($submenus as $submenu): ?>
                                             <li><a href="<?= $submenu->url ?>"><?= $submenu->title ?></a></li>
                                         <?php endforeach; ?>
