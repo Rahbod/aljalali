@@ -36,7 +36,6 @@ a:active {
     height:656px;
     background: url("../images/sec-top-bg.jpg") center;
     background-size: cover;
-    overflow: hidden;
 }
 .top-section.inner{
     height:255px;

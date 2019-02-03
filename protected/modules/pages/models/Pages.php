@@ -112,7 +112,7 @@ class Pages extends SortableCActiveRecord
         $criteria->compare('parent_id', $this->parent_id);
         if(isset($_GET['parent']))
             $criteria->addCondition('parent_id IS NULL');
-        else
+        else if ($this->category_id != 3)
             $criteria->addCondition('parent_id IS NOT NULL');
 
 

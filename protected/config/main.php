@@ -43,6 +43,7 @@ return array(
         'contact',
         'map',
         'slideshow',
+        'gallery',
 	),
 
 	// application components

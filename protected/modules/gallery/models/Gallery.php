@@ -1,25 +1,24 @@
 <?php
 
 /**
- * This is the model class for table "{{page_categories}}".
+ * This is the model class for table "{{gallery}}".
  *
- * The followings are the available columns in table '{{page_categories}}':
+ * The followings are the available columns in table '{{gallery}}':
  * @property string $id
- * @property string $name
- * @property string $slug
- * @property int $multiple
- *
- * The followings are the available model relations:
- * @property Pages[] $pages
+ * @property string $title
+ * @property string $description
+ * @property string $category_id
+ * @property string $image
+ * @property string $order
  */
-class PageCategories extends CActiveRecord
+class Gallery extends SortableCActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return '{{page_categories}}';
+		return '{{gallery}}';
 	}
 
 	/**
@@ -30,10 +29,13 @@ class PageCategories extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, slug', 'length', 'max'=>255),
+			array('title, description, category_id, image', 'required'),
+			array('title', 'length', 'max'=>50),
+			array('category_id, order', 'length', 'max'=>10),
+			array('image', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, slug, multiple', 'safe', 'on'=>'search'),
+			array('id, title, description, category_id, image, order', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -45,7 +47,7 @@ class PageCategories extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'pages' => array(self::HAS_MANY, 'Pages', 'category_id'),
+		    'category' => array(self::BELONGS_TO, 'GalleryCategories', 'category_id')
 		);
 	}
 
@@ -55,8 +57,12 @@ class PageCategories extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'name' => 'عنوان',
-			'slug' => 'آدرس',
+			'id' => 'شناسه',
+			'title' => 'عنوان',
+			'description' => 'توضیحات',
+			'category_id' => 'دسته بندی',
+			'image' => 'تصویر',
+			'order' => 'Order',
 		);
 	}
 
@@ -79,9 +85,13 @@ class PageCategories extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
-		$criteria->compare('name',$this->name,true);
-		$criteria->compare('slug',$this->slug,true);
+		$criteria->compare('title',$this->title,true);
+		$criteria->compare('description',$this->description,true);
+		$criteria->compare('category_id',$this->category_id,true);
+		$criteria->compare('image',$this->image,true);
+		$criteria->compare('order',$this->order,true);
 
+        $criteria->order = 't.order';
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
@@ -91,7 +101,7 @@ class PageCategories extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return PageCategories the static model class
+	 * @return Gallery the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

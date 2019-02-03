@@ -9,7 +9,7 @@ if($module == 'pages')
     $inner = true;
 ?>
 <div class="top-section <?= $inner?'inner':'' ?>">
-    <div class="container">
+    <div class="">
         <div class="header">
             <div class="aya hidden-xs"></div>
 <!--            <div class="search-container">-->
@@ -27,13 +27,21 @@ if($module == 'pages')
                     <?php $menus = Pages::getPages('menu', 'parent_id IS NULL'); ?>
                     <?php foreach ($menus as $menu): ?>
                         <li class="dropdown<?= $module=='pages' && $action=='view' && isset($_GET['id']) && $_GET['id']==$menu->id?' active':'' ?>">
-                            <a class="dropdown-toggle" href="#" data-toggle="dropdown"><?= $menu->title ?></a>
-                            <ul class="dropdown-menu">
-                                <?php $submenus = Pages::getPages('menu', 'parent_id = :id', [':id' => $menu->id]);
-                                foreach ($submenus as $submenu): ?>
-                                <li><a href="<?= $submenu->url ?>"><?= $submenu->title ?></a></li>
-                                <?php endforeach; ?>
-                            </ul>
+                            <?php if(!empty($menu->summary)): ?>
+                                <a href="<?= $menu->getUrl() ?>"><?= $menu->title ?></a>
+                            <?php else: ?>
+                                <a class="dropdown-toggle" href="#" data-toggle="dropdown"><?= $menu->title ?></a>
+                                <?php
+                                $submenus = Pages::getPages('menu', 'parent_id = :id', [':id' => $menu->id]);
+                                if($submenus):
+                                    ?>
+                                    <ul class="dropdown-menu">
+                                        <?php foreach ($submenus as $submenu): ?>
+                                            <li><a href="<?= $submenu->url ?>"><?= $submenu->title ?></a></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                <?php endif; ?>
+                            <?php endif; ?>
                         </li>
                     <?php endforeach;?>
                 </ul>
@@ -51,13 +59,21 @@ if($module == 'pages')
                         <li<?= $controller=='site' && $action=='index'?' class="active"':'' ?>><a href="<?= Yii::app()->getBaseUrl(true)?>">الرئيسية</a></li>
                         <?php foreach ($menus as $menu): ?>
                             <li class="dropdown<?= $module=='pages' && $action=='view' && isset($_GET['id']) && $_GET['id']==$menu->id?' active':'' ?>">
-                                <a class="dropdown-toggle" href="#" data-toggle="dropdown"><?= $menu->title ?></a>
-                                <ul class="dropdown-menu">
-                                    <?php $submenus = Pages::getPages('menu', 'parent_id = :id', [':id' => $menu->id]);
-                                    foreach ($submenus as $submenu): ?>
-                                        <li><a href="<?= $submenu->url ?>"><?= $submenu->title ?></a></li>
-                                    <?php endforeach; ?>
-                                </ul>
+                                <?php if(!empty($menu->summary)): ?>
+                                    <a href="<?= $menu->getUrl() ?>"><?= $menu->title ?></a>
+                                <?php else: ?>
+                                    <a class="dropdown-toggle" href="#"><?= $menu->title ?></a>
+                                    <?php
+                                    $submenus = Pages::getPages('menu', 'parent_id = :id', [':id' => $menu->id]);
+                                    if($submenus):
+                                    ?>
+                                    <ul class="dropdown-menu">
+                                        <?php foreach ($submenus as $submenu): ?>
+                                            <li><a href="<?= $submenu->url ?>"><?= $submenu->title ?></a></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                    <?php endif; ?>
+                                <?php endif; ?>
                             </li>
                         <?php endforeach;?>
                     </ul>

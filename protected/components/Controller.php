@@ -117,8 +117,8 @@ class Controller extends AuthController
                     'itemOptions' => array('class' => 'treeview', 'tabindex' => "-1"),
                     'submenuOptions' => array('class' => 'treeview-menu'),
                     'items' => array(
-                        array('label' => '<i class="fa fa-circle-o"></i>دسته بندی ها', 'url' => Yii::app()->createUrl('/pages/manage/admin/slug/menu?parent=true')),
-                        array('label' => '<i class="fa fa-circle-o"></i>مدیریت صفحات', 'url' => Yii::app()->createUrl('/pages/manage/admin/slug/menu')),
+                        array('label' => '<i class="fa fa-circle-o"></i>منوی اصلی', 'url' => Yii::app()->createUrl('/pages/manage/admin/slug/menu?parent=true')),
+                        array('label' => '<i class="fa fa-circle-o"></i>زیرمنو ها', 'url' => Yii::app()->createUrl('/pages/manage/admin/slug/menu')),
                     )
                 ),
                 array(
@@ -137,6 +137,16 @@ class Controller extends AuthController
                     'items' => array(
                         array('label' => '<i class="fa fa-circle-o"></i>مدیریت تصاویر', 'url' => Yii::app()->createUrl('/slideshow/manage/admin/')),
                         array('label' => '<i class="fa fa-circle-o"></i>افزودن تصویر جدید', 'url' => Yii::app()->createUrl('/slideshow/manage/create')),
+                    )
+                ),
+                array(
+                    'label' => '<i class="fa fa-picture-o"></i><span>گالری تصاویر</span> <i class="fa fa-angle-left pull-left"></i>',
+                    'url' => '#',
+                    'itemOptions' => array('class' => 'treeview', 'tabindex' => "-1"),
+                    'submenuOptions' => array('class' => 'treeview-menu'),
+                    'items' => array(
+                        array('label' => '<i class="fa fa-circle-o"></i>مدیریت تصاویر', 'url' => Yii::app()->createUrl('/gallery/manage/admin/')),
+                        array('label' => '<i class="fa fa-circle-o"></i>مدیریت دسته بندی', 'url' => Yii::app()->createUrl('/gallery/categories/admin')),
                     )
                 ),
                 array(

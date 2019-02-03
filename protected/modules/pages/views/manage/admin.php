@@ -27,7 +27,7 @@ $columns = array(
         )
     )
 );
-if(isset($_GET['parent']))
+if(isset($_GET['parent']) || $this->categoryId == 3)
     $columns= array(
         ['class'=>'SortableGridColumn'],
         'title',

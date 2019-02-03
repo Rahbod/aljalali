@@ -11,7 +11,11 @@
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
-)); ?>
+));
+
+if(isset($_GET['parent']))
+    echo CHtml::hiddenField('parent', true);
+?>
 
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'title'); ?>
@@ -19,8 +23,31 @@
 		<?php echo $form->error($model,'title'); ?>
 	</div>
 
-    <?php if(!isset($_GET['parent'])):?>
-        <?php if($this->categorySlug == 'about' || $this->categorySlug == 'footer' || $this->categorySlug == 'menu'):?>
+
+<?php if(isset($_GET['parent'])):?>
+    <div class="form-group">
+        <input id="parent_detail" type="checkbox" name="parent-detail" value="1" <?php if(isset($_POST['parent-detail']) || ($model->parent_id === NULL && !empty($model->summary))) echo 'checked'?>>
+        <label>جزییات</label>
+    </div>
+
+<script>
+    $(function () {
+        if(!$('#parent_detail').is(":checked"))
+            $(".page-content").addClass("hidden");
+
+        $("body").on("change", '#parent_detail', function () {
+            if($(this).is(":checked"))
+                $(".page-content").removeClass("hidden");
+            else
+                $(".page-content").addClass("hidden");
+        })
+    })
+</script>
+<?php endif; ?>
+
+
+    <div class="page-content">
+        <?php if(!isset($_GET['parent']) && ($this->categorySlug == 'about' || $this->categorySlug == 'footer' || $this->categorySlug == 'menu')):?>
         <div class="form-group">
             <?php echo $form->labelEx($model,'parent_id'); ?>
             <div class="input-group">
@@ -88,9 +115,7 @@
             ?>
             <?php echo $form->error($model,'formTags'); ?>
         </div>
-    <?php else: ?>
-        <?php echo CHtml::hiddenField('parent', true) ?>
-    <?php endif; ?>
+    </div>
 
 	<div class="form-group buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'افزودن' : 'ویرایش',array('class' => 'btn btn-success')); ?>

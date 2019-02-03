@@ -27,4 +27,10 @@ $(document).ready(function() {
         else
             $('.menu-container').addClass('on-top');
     });
+
+    $("body").on("mouseover", "li.dropdown", function () {
+        $(this).addClass("open");
+    }).on("mouseleave", "li.dropdown", function () {
+        $(this).removeClass("open");
+    });
 });
