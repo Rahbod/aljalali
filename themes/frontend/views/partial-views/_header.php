@@ -42,7 +42,7 @@ if($module == 'pages')
 
 
         <div class="menu-container on-top">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="name-pic"><a href="<?= Yii::app()->getBaseUrl(true) ?>"></a></div>
                 <div class="mobile-menu-trigger visible-xs"></div>
                 <div class="overlay"></div>

@@ -53,16 +53,16 @@
         height: 100px;
         width: 100%;
     }
-    .menu-container .menu ul{
+    .menu-container .menu>ul{
         margin: 0;
         height:auto;
     }
-    .menu-container .menu li{
+    .menu-container .menu>ul>li{
         float: none;
         margin-left: 0;
         height:auto;
     }
-    .menu-container .menu li a{
+    .menu-container .menu>ul>li>a{
         line-height:20px;
         color: #323232;
         padding: 10px 15px;
@@ -149,6 +149,7 @@
         display: block;
         padding: 0;
         margin-bottom: 30px;
+        width: 100%;
     }
     .footer-section .pull-right{
         float: none !important;

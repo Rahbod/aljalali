@@ -658,9 +658,10 @@ a:active {
     padding-left: 0;
 }
 .footer-section .footer-block h4{
+    display: inline-block;
     font-weight: bold;
-    text-decoration: underline;
     margin: 0 0 15px;
+    padding-bottom: 5px;
 }
 .footer-section .footer-block ul{
     padding: 0;
