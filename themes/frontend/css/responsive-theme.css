@@ -17,6 +17,7 @@
     }
     .slider .slide-item{
         height:200px;
+        height:auto;
     }
     .slider .slide-item img{
         max-height:200px;
