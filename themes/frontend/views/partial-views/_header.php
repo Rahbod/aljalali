@@ -44,7 +44,19 @@ if($module)
                             <?php endif; ?>
                         </li>
                     <?php endforeach;?>
-                    <li<?= $module=='gallery' && $action=='index'?' class="active"':'' ?>><a href="<?= $this->createUrl('/gallery')?>">حقل الصور</a></li>
+                    <li class="dropdown<?= $module=='gallery'?' active':'' ?>">
+                        <a class="dropdown-toggle" href="#menu-container-gallery" data-toggle="dropdown">حقل الصور</a>
+                        <?php
+                        $galleryCategories = GalleryCategories::model()->findAll(array('order' => 't.order'));
+                        if($galleryCategories):
+                            ?>
+                            <ul class="dropdown-menu" id="menu-container-gallery">
+                                <?php foreach ($galleryCategories as $category): ?>
+                                    <li><a href="<?= $module=='gallery'?"#category-{$category->id}":$this->createUrl("/gallery#category-{$category->id}") ?>"><?= $category->title ?></a></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -77,7 +89,19 @@ if($module)
                                 <?php endif; ?>
                             </li>
                         <?php endforeach;?>
-                        <li<?= $module=='gallery' && $action=='index'?' class="active"':'' ?>><a href="<?= $this->createUrl('/gallery')?>">حقل الصور</a></li>
+
+                        <li class="dropdown<?= $module=='gallery'?' active':'' ?>">
+                            <a class="dropdown-toggle" href="#menu-container-gallery" data-toggle="dropdown">حقل الصور</a>
+                            <?php
+                            if($galleryCategories):
+                                ?>
+                                <ul class="dropdown-menu" id="menu-container-gallery">
+                                    <?php foreach ($galleryCategories as $category): ?>
+                                        <li><a href="<?= $module=='gallery'?"#category-{$category->id}":$this->createUrl("/gallery#category-{$category->id}") ?>"><?= $category->title ?></a></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -24,6 +24,7 @@ return array(
 		'application.modules.users.models.*',
 		'application.modules.admins.models.*',
 		'application.modules.slideshow.models.*',
+		'application.modules.gallery.models.*',
 	),
 
 	'modules'=>array(

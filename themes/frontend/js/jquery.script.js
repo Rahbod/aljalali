@@ -28,9 +28,15 @@ $(document).ready(function() {
             $('.menu-container').addClass('on-top');
     });
 
+    var timeout;
     $("body").on("mouseover", "li.dropdown", function () {
+        clearTimeout(timeout);
+        $("li.dropdown").not($(this)).removeClass("open");
         $(this).addClass("open");
     }).on("mouseleave", "li.dropdown", function () {
-        $(this).removeClass("open");
+        var el = $(this);
+        timeout = setTimeout(function () {
+            el.removeClass("open");
+        },300);
     });
 });
