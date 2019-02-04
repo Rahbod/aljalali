@@ -18,21 +18,22 @@ $cs->registerCssFile($baseUrl.'/css/lightbox.min.css');
 $cs->registerScriptFile($baseUrl.'/js/lightbox.min.js', CClientScript::POS_END);
 $cs->registerScript('url-hash','
 var hash = window.location.hash;
-$("a[data-target=\'"+hash+"\']").click();
-
+$("a[data-target=\'"+hash+"\']").tab("show");
+setTimeout(function() {
+    window.scrollTo(0, 0);
+}, 1);
 window.addEventListener("hashchange", function(e){
     e.preventDefault();
     var hash = window.location.hash;
-    $("a[data-target=\'"+hash+"\']").click();
+    $("a[data-target=\'"+hash+"\']").tab("show");
 }, false);
 
 $("body").on("click", "#menu-container-gallery a", function(e){
     e.preventDefault();
     window.location.hash = $(this).attr("href");
-    $(\'html, body\').animate({
-        scrollTop: $(".context").offset().top
-    }, 1000);
-//    history.pushState({}, null, $(this).attr("href"));
+//    setTimeout(function() {
+//        window.scrollTo(0, 0);
+//    }, 1);
 });
 ', CClientScript::POS_READY);
 ?>

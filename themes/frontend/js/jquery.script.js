@@ -21,11 +21,15 @@ $(document).ready(function() {
         $(this).hide();
     });
 
-    $(window).on('scroll', function(){
-        if($(this).scrollTop() > 200)
+    $(window).on('scroll', function() {
+        if ($(this).scrollTop() > 200) {
             $('.menu-container').removeClass('on-top');
-        else
+            $(".header .menu li.dropdown").removeClass("open");
+        }
+        else {
             $('.menu-container').addClass('on-top');
+            $(".menu-container .menu li.dropdown").removeClass("open");
+        }
     });
 
     var timeout;
