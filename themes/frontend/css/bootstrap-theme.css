@@ -165,6 +165,7 @@ a:active {
     position: relative;
     font-size: 11px;
 }
+.menu-container .dropdown-menu,
 .header .menu .dropdown-menu{
     margin-top: 0;
 }
@@ -228,7 +229,7 @@ a:active {
     vertical-align: middle;
 }
 .slider .slide-item img{
-    /*max-height: 450px;*/
+    max-height: 450px;
     width: 100%;
     height: auto;
 }
@@ -744,7 +745,7 @@ a:active {
 }
 
 .page-text{
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     max-width: 800px;
     display: inline-block;
     overflow: hidden;
@@ -808,7 +809,8 @@ a:active {
     white-space: nowrap;
 }
 
-.dropdown.open .dropdown-menu{
+.dropdown.open .dropdown-menu,
+.dropdown-menu.open{
     display: block;
 }
 
