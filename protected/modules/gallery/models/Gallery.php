@@ -29,7 +29,7 @@ class Gallery extends SortableCActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, description, category_id, image', 'required'),
+			array('title, category_id, image', 'required'),
 			array('title', 'length', 'max'=>50),
 			array('category_id, order', 'length', 'max'=>10),
 			array('image', 'length', 'max'=>255),

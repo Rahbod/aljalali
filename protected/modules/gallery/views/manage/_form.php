@@ -47,7 +47,7 @@
             'model' => $model,
             'name' => 'image',
             'maxFiles' => 1,
-            'maxFileSize' => .5, //MB
+            'maxFileSize' => 2, //MB
             'url' => $this->createUrl('upload'),
             'deleteUrl' => $this->createUrl('deleteUpload'),
             'acceptedFiles' => '.jpg, .jpeg, .png',
