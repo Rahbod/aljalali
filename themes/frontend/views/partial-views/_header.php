@@ -50,7 +50,7 @@ if($module)
                         $galleryCategories = GalleryCategories::model()->findAll(array('order' => 't.order'));
                         if($galleryCategories):
                             ?>
-                            <ul class="dropdown-menu" id="menu-container-gallery">
+                            <ul class="dropdown-menu pull-right" id="menu-container-gallery">
                                 <?php foreach ($galleryCategories as $category): ?>
                                     <li><a href="<?= $module=='gallery'?"#category-{$category->id}":$this->createUrl("/gallery#category-{$category->id}") ?>"><?= $category->title ?></a></li>
                                 <?php endforeach; ?>
@@ -95,7 +95,7 @@ if($module)
                             <?php
                             if($galleryCategories):
                                 ?>
-                                <ul class="dropdown-menu" id="menu-container-gallery">
+                                <ul class="dropdown-menu pull-right" id="menu-container-gallery">
                                     <?php foreach ($galleryCategories as $category): ?>
                                         <li><a href="<?= $module=='gallery'?"#category-{$category->id}":$this->createUrl("/gallery#category-{$category->id}") ?>"><?= $category->title ?></a></li>
                                     <?php endforeach; ?>

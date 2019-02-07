@@ -172,7 +172,7 @@ $hijriDate = HijriDate::get()->response;
         </div>
         <div class="copyright">
             <div class="pull-right">
-                <a href="#">by rahbod</a>
+                <a href="http://tarsiminc.com" target="_blank">by tarsim.inc</a>
             </div>
             <div class="pull-left text"><b>al-jalali.com</b> . ALL RIGHTS RESERVED © 2018</div>
         </div>

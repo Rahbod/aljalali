@@ -21,7 +21,7 @@ var hash = window.location.hash;
 $("a[data-target=\'"+hash+"\']").tab("show");
 setTimeout(function() {
     window.scrollTo(0, 0);
-}, 1);
+}, 10);
 window.addEventListener("hashchange", function(e){
     e.preventDefault();
     var hash = window.location.hash;
@@ -31,9 +31,9 @@ window.addEventListener("hashchange", function(e){
 $("body").on("click", "#menu-container-gallery a", function(e){
     e.preventDefault();
     window.location.hash = $(this).attr("href");
-//    setTimeout(function() {
-//        window.scrollTo(0, 0);
-//    }, 1);
+    setTimeout(function() {
+        window.scrollTo(0, 0);
+    }, 1);
 });
 ', CClientScript::POS_READY);
 ?>
@@ -60,7 +60,7 @@ $("body").on("click", "#menu-container-gallery a", function(e){
                                 <div class="gallery-image">
                                     <img src="<?= Yii::app()->getBaseUrl(true)."/{$this->imagePath}/thumbs/200x200/{$item->image}" ?>" alt="<?= $item->title ?>" width="192px" height="192px">
                                 </div>
-                                <div class="gallery-title"><?= $item->title ?></div>
+                                <div class="gallery-title hidden"><?= $item->title ?></div>
                                 <div class="gallery-overlay"></div>
                                 <div class="gallery-description hidden"><?= $item->description ?></div>
                             </a>

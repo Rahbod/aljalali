@@ -9,10 +9,8 @@ class SlideShowManageController extends Controller
 	public $layout='//layouts/column2';
     public $tempPath = 'uploads/temp';
     public $imagePath = 'uploads/slideshow';
-    public $imageOptions = ['resize' => ['width' => 1920, 'height' => 600]];
-    public $mobileImageOptions = [
-//        'thumbnail' => ['width' => 100, 'height' => 100],
-        'resize' => ['width' => 400, 'height' => 400]];
+    public $imageOptions = [];
+    public $mobileImageOptions = [];
 
 	/**
 	 * @return array action filters

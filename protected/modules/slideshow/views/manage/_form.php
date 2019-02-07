@@ -22,11 +22,10 @@
 	</div>
 	<!--
 	<div class="form-group">
-		<?php echo $form->labelEx($model,'description'); ?>
-		<?php echo $form->textArea($model,'description',array('form-groups'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'description'); ?>
-	</div>
--->
+<!--		--><?php //echo $form->labelEx($model,'description'); ?>
+<!--		--><?php //echo $form->textArea($model,'description',array('form-groups'=>6, 'cols'=>50)); ?>
+<!--		--><?php //echo $form->error($model,'description'); ?>
+<!--	</div>-->
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'image'); ?>
 		<?php $this->widget('ext.dropZoneUploader.dropZoneUploader', array(
@@ -52,6 +51,7 @@
             ',
         )); ?>
         <?php echo $form->error($model,'image'); ?>
+        <small> اندازه استاندارد عکس 1600 در 450 پیکسل میباشد.</small>
         <div class="uploader-message error"></div>
 	</div>
 <? /*
