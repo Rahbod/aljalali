@@ -1,6 +1,10 @@
 <?php
 /** @var $this Controller */
 /** @var $form CActiveForm */
+$controller = $this->action->controller->id;
+$module = $this->action->controller->module?$this->action->controller->module->id:null;
+$action = $this->action->id;
+
 $prayer = Prayer::get()->response['items'][0];
 $hijriDate = HijriDate::get()->response;
 ?>
@@ -153,15 +157,18 @@ $hijriDate = HijriDate::get()->response;
                 </ul>
             </div>
         <?php endforeach;?>
-        <?php $last_footer = Pages::model()->find('title = :title',[':title' => 'حقل الصور']); ?>
         <div class="footer-block">
             <h4>حقل الصور</h4>
-            <ul>
-                <?php $sub = Pages::getPages('footer', 'parent_id = :pid', [':pid' => $last_footer->id]); ?>
-                <?php foreach ($sub as $page): ?>
-                    <li><a href="<?= $page->url ?>"><?= $page->title ?></a></li>
-                <?php endforeach;?>
-            </ul>
+            <?php
+            $galleryCategories = GalleryCategories::model()->findAll(array('order' => 't.order'));
+            if($galleryCategories):
+                ?>
+                <ul>
+                    <?php foreach ($galleryCategories as $category): ?>
+                        <li><a href="<?= $module=='gallery'?"#category-{$category->id}":$this->createUrl("/gallery#category-{$category->id}") ?>"><?= $category->title ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
         </div>
         <div class="copyright">
             <div class="pull-right">

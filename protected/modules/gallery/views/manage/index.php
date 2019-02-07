@@ -20,7 +20,7 @@ $cs->registerScriptFile($baseUrl.'/js/lightbox.min.js', CClientScript::POS_END);
 
 <div class="context">
     <div class="container text-center">
-        <div class="page-title"><h3 class="text-right">گالری تصاویر</h3></div>
+        <div class="page-title"><h3 class="text-right">حلق الصور</h3></div>
         <div class="clearfix"></div>
         <div class="page-text" style="width: 100%;overflow: visible">
             <ul class="nav nav-pills gallery-nav text-right">
