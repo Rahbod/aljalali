@@ -50,8 +50,8 @@ a:active {
     width: 142px;
     height: 142px;
     position: absolute;
-    left: 0;
-    top: 15px;
+    left: 13px;
+    top: 13px;
 }
 .search-icon{
     background: url("../svg/search.svg") no-repeat center;
@@ -165,6 +165,7 @@ a:active {
     position: relative;
     font-size: 11px;
 }
+.menu-container .dropdown-menu,
 .header .menu .dropdown-menu{
     margin-top: 0;
 }
@@ -228,7 +229,7 @@ a:active {
     vertical-align: middle;
 }
 .slider .slide-item img{
-    /*max-height: 450px;*/
+    max-height: 450px;
     width: 100%;
     height: auto;
 }
@@ -744,7 +745,7 @@ a:active {
 }
 
 .page-text{
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     max-width: 800px;
     display: inline-block;
     overflow: hidden;
@@ -808,7 +809,8 @@ a:active {
     white-space: nowrap;
 }
 
-.dropdown.open .dropdown-menu{
+.dropdown.open .dropdown-menu,
+.dropdown-menu.open{
     display: block;
 }
 
@@ -831,6 +833,7 @@ a:active {
     margin: 4px;
     width: 192px;
     position: relative;
+    overflow: hidden;
 }
 .gallery-item .gallery-image{
     -webkit-box-shadow: 0 0 8px #00000040;
@@ -851,8 +854,8 @@ a:active {
     display: block;
     overflow: hidden;
     opacity: 0;
-    z-index: 100;
-    font-size: 24px;
+    z-index: 2;
+    font-size: 22px;
     -webkit-transform: translateY(-50%) scale(2);
     -moz-transform: translateY(-50%) scale(2);
     -ms-transform: translateY(-50%) scale(2);
@@ -882,7 +885,7 @@ a:active {
     display: block;
     overflow: hidden;
     visibility: hidden;
-    z-index: 99;
+    z-index: 1;
     background-color: rgba(0,0,0,0.5);
     -webkit-transition: all .22s cubic-bezier(.694, .048, .335, 1) 0s;
     -moz-transition: all .22s cubic-bezier(.694, .048, .335, 1) 0s;
