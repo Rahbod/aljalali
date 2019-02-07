@@ -1,7 +1,9 @@
 $(document).ready(function() {
     if ($(".owl-carousel").length) {
         $(".owl-carousel").owlCarousel({
-            items: 1
+            items: 1,
+            autoplay: true,
+            rtl: true
         });
 
         var dotsCount = $(".owl-carousel .owl-dot").length;
