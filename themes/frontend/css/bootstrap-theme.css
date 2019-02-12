@@ -213,10 +213,14 @@ a:active {
 }
 .image-container{
     height: 110%;
-    right: -5%;
+    left: -5%;
     position: relative;
     top: -5%;
     width: 110%;
+}
+.slide-item .image-container{
+    left: unset;
+    right: -5%;
 }
 .image-container .image-outer-align{
     display: table;
@@ -650,9 +654,10 @@ a:active {
     padding: 70px 0 30px;
 }
 .footer-section .footer-block{
+    float: right;
     display: inline-block;
     padding: 0 20px;
-    width: 16.3333%;
+    width: 14.28%;
     vertical-align: top;
 }
 .footer-section .footer-block:first-child{
@@ -683,6 +688,8 @@ a:active {
     text-decoration: underline;
 }
 .footer-section .copyright{
+    display: block;
+    overflow: hidden;
     text-transform: uppercase;
     margin-top: 70px;
 }
