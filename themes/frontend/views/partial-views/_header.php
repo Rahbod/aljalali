@@ -91,11 +91,11 @@ if($module)
                         <?php endforeach;?>
 
                         <li class="dropdown<?= $module=='gallery'?' active':'' ?>">
-                            <a class="dropdown-toggle" href="#menu-container-gallery" data-toggle="dropdown">حقل الصور</a>
+                            <a class="dropdown-toggle" href="#menu-container-sub-gallery" data-toggle="dropdown">حقل الصور</a>
                             <?php
                             if($galleryCategories):
                                 ?>
-                                <ul class="dropdown-menu pull-right" id="menu-container-gallery">
+                                <ul class="dropdown-menu pull-right" id="menu-container-sub-gallery">
                                     <?php foreach ($galleryCategories as $category): ?>
                                         <li><a href="<?= $module=='gallery'?"#category-{$category->id}":$this->createUrl("/gallery#category-{$category->id}") ?>"><?= $category->title ?></a></li>
                                     <?php endforeach; ?>

@@ -14,6 +14,7 @@ $hijriDate = HijriDate::get()->response;
     <div class="container">
         <img src="<?= Yii::app()->theme->baseUrl. '/images/kabeh.png'?>">
         <h3>الصلاة القادمة
+            <small>بتوقیت نجف الاشرف</small>
             <?php if(isset($hijriDate['data']['hijri'])):?>
                 <small><?php echo $hijriDate['data']['hijri']['day'].' '.$hijriDate['data']['hijri']['month']['ar'].', '.$hijriDate['data']['hijri']['year'].' هـ'?></small>
                 <small><?php echo $hijriDate['data']['gregorian']['year'].$hijriDate['data']['gregorian']['month']['en'].$hijriDate['data']['gregorian']['day'].' مـ'?></small>
@@ -42,6 +43,9 @@ $hijriDate = HijriDate::get()->response;
             </li>
         </ul>
     </div>
+</div>
+<div class="map-section">
+    <?php $this->renderPartial('//partial-views/_map') ?>
 </div>
 <div class="bottom-section">
     <div class="container">

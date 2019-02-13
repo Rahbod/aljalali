@@ -40,7 +40,7 @@ $("body").on("click", "#menu-container-gallery a", function(e){
 
 <div class="context">
     <div class="container text-center">
-        <div class="page-title"><h3 class="text-right">حلق الصور</h3></div>
+        <div class="page-title"><h3 class="text-right">حقل الصور</h3></div>
         <div class="clearfix"></div>
         <div class="page-text" style="max-width:1000px;width: 100%;overflow: visible">
             <ul class="nav nav-pills gallery-nav text-right">

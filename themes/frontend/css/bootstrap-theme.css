@@ -688,8 +688,8 @@ a:active {
     text-decoration: underline;
 }
 .footer-section .copyright{
-    display: block;
-    overflow: hidden;
+    display: inline-block;
+    width: 100%;
     text-transform: uppercase;
     margin-top: 70px;
 }
@@ -919,4 +919,8 @@ a:active {
     -ms-transform:scale(1.2);
     -o-transform: scale(1.2);
     transform:scale(1.2);
+}
+#google-map,
+.map-section{
+    height: 400px;
 }
