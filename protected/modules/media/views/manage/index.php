@@ -38,6 +38,7 @@ $this->breadcrumbs=array(
 
                             <!--                            Delete Form-->
                             <form action="<?= $this->createUrl('/media/manage/deleteUpload') ?>" method="post">
+                                <input type="hidden" name="csrf-token" value="<?= Yii::app()->request->csrfToken ?>">
                                 <input type="hidden" name="fileName" value="<?= $item ?>">
                                 <button type="submit" class="btn btn-danger btn-xs remove-file-btn" onclick='if(!confirm("در صورت حذف تصویر موارد استفاده شده نمایش داده نمیشود.\nآیا از حذف اطمینان دارید؟")) return false;'>حذف تصویر</button>
                             </form>

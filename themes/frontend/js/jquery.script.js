@@ -1,4 +1,10 @@
 $(document).ready(function() {
+    $.ajaxSetup({
+        data: {
+            'YII_CSRF_TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     if ($(".owl-carousel").length) {
         $(".owl-carousel").owlCarousel({
             items: 1,
