@@ -45,6 +45,7 @@ return array(
         'map',
         'slideshow',
         'gallery',
+        'media',
 	),
 
 	// application components

@@ -47,4 +47,17 @@ $(document).ready(function() {
             }, 300);
         });
     }
+
+    $("body").on("click" ,".page-text a[href^='#']",function(e) {
+        e.preventDefault();
+        if ($(window).width() < 768)
+            $('.menu-container .menu').removeClass('open');
+        $("li.dropdown").removeClass("open");
+
+        var href = $(this).attr('href');
+        if (href.substr(1, href.length))
+            $('html, body').animate({
+                scrollTop: ($(href).offset().top - 90)
+            }, 1000);
+    });
 });

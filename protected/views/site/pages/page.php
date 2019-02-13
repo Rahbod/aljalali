@@ -14,7 +14,8 @@
         <div class="page-title"><h3 class="text-right"><?= CHtml::encode($model->title) ?></h3></div>
         <div class="clearfix"></div>
         <div class="page-text"><?php
-            $purifier=new CHtmlPurifier();
-            echo $purifier->purify($model->summary);
+            echo $model->summary;
+//            $purifier=new CHtmlPurifier();
+//            echo $purifier->purify($model->summary);
             ?></div></div>
 </div>
