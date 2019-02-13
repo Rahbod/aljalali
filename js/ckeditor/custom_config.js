@@ -25,4 +25,5 @@ CKEDITOR.editorConfig = function( config ) {
     config.removeButtons = 'Source,Save,Templates,NewPage,Preview,Print,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Outdent,Indent,Blockquote,CreateDiv,Language,Flash,Smiley,PageBreak,Iframe,ShowBlocks,Maximize,About';
 
     config.language = 'fa';
+    config.extraPlugins = 'filebrowser,filetools,popup';
 };
