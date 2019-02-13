@@ -44,6 +44,9 @@ $hijriDate = HijriDate::get()->response;
         </ul>
     </div>
 </div>
+<div class="map-section">
+    <?php $this->renderPartial('//partial-views/_map') ?>
+</div>
 <div class="bottom-section">
     <div class="container">
         <div class="overflow-fix">

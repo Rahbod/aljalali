@@ -7,7 +7,7 @@
 ?>
 <div class="about-section">
     <div class="container">
-        <h2>عن الشهید<small>السید محمد تقی الحسینی الجلالی</small></h2>
+        <h2>عن الشهید<small>السید محمد التقی الحسیني الجلالي</small></h2>
         <div class="row">
             <?php $abouts = Pages::getPages('about', 'parent_id IS NULL'); ?>
             <?php foreach ($abouts as $item): ?>
@@ -28,7 +28,7 @@
 </div>
 <div class="services-section">
     <div class="container">
-        <h2>خدمات الشهید<small>السید محمد تقی الحسینی الجلالی</small></h2>
+        <h2>خدمات الشهید<small>السید محمد التقی الحسیني الجلالي</small></h2>
         <div class="row">
             <?php $services = Pages::getPages('services'); ?>
             <?php foreach ($services as $item): ?>

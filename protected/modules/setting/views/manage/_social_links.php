@@ -23,6 +23,10 @@ if($model->value)
             <?php echo CHtml::textField("SiteSetting[social_links][facebook]",($social_links && isset($social_links['facebook'])?$social_links['facebook']:''),array('size'=>60,'class'=>'form-control text-left ltr')); ?>
         </div>
         <div class="form-group">
+            <?php echo CHtml::label('لینک دوم فیسبوک',''); ?>
+            <?php echo CHtml::textField("SiteSetting[social_links][facebook2]",($social_links && isset($social_links['facebook2'])?$social_links['facebook2']:''),array('size'=>60,'class'=>'form-control text-left ltr')); ?>
+        </div>
+        <div class="form-group">
             <?php echo CHtml::label('لینک اینستاگرام',''); ?>
             <?php echo CHtml::textField("SiteSetting[social_links][instagram]",($social_links && isset($social_links['instagram'])?$social_links['instagram']:''),array('size'=>60,'class'=>'form-control text-left ltr')); ?>
         </div>
