@@ -171,6 +171,15 @@ $hijriDate = HijriDate::get()->response;
                 </ul>
             <?php endif; ?>
         </div>
+        <div class="footer-block">
+            <h4>المواقع المرتبطة</h4>
+            <ul>
+                <li><a href="http://www.facebook.com/sayedaljalali">facebook.com/seyedaljalali</a></li>
+                <li><a href="http://www.aljalali.net">www.aljalali.net</a></li>
+                <li><a href="http://ahlulbait.co.uk">ahlulbait.co.uk</a></li>
+                <li><a href="http://surreyislamiccentre.com">surreyislamiccentre.com</a></li>
+            </ul>
+        </div>
         <div class="copyright">
             <div class="pull-right">
                 <a href="http://tarsiminc.com" target="_blank">by tarsim.inc</a>
