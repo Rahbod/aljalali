@@ -50,22 +50,25 @@ $("body").on("click", "#menu-container-gallery a", function(e){
             </ul>
             <div class="tab-content  text-right">
                 <?php $i=0;foreach ($categories as $category):$i++; ?>
-                    <div class="tab-pane gallery-list fade <?= $i==1?'active in':''?>" id="category-<?= $category->id ?>">
-                        <?foreach ($category->items as $item):
-                            if(!$item->image|| !is_file(Yii::getPathOfAlias('webroot')."/{$this->imagePath}/{$item->image}")) continue;?>
-                        <div class="gallery-item">
-                            <a href="<?= Yii::app()->getBaseUrl(true)."/{$this->imagePath}/{$item->image}" ?>"
-                               data-lightbox="gallery-<?= $category->id ?>"
-                               data-title="<?= $item->title ?>">
-                                <div class="gallery-image">
-                                    <img src="<?= Yii::app()->getBaseUrl(true)."/{$this->imagePath}/thumbs/200x200/{$item->image}" ?>" alt="<?= $item->title ?>" width="192px" height="192px">
-                                </div>
-                                <div class="gallery-title hidden"><?= $item->title ?></div>
-                                <div class="gallery-overlay"></div>
-                                <div class="gallery-description hidden"><?= $item->description ?></div>
-                            </a>
+                    <div class="tab-pane fade <?= $i==1?'active in':''?>" id="category-<?= $category->id ?>">
+                        <div class="page-text"><?php echo $category->description; ?></div>
+                        <div class="gallery-list">
+                            <?foreach ($category->items as $item):
+                                if(!$item->image|| !is_file(Yii::getPathOfAlias('webroot')."/{$this->imagePath}/{$item->image}")) continue;?>
+                            <div class="gallery-item">
+                                <a href="<?= Yii::app()->getBaseUrl(true)."/{$this->imagePath}/{$item->image}" ?>"
+                                   data-lightbox="gallery-<?= $category->id ?>"
+                                   data-title="<?= $item->title ?>">
+                                    <div class="gallery-image">
+                                        <img src="<?= Yii::app()->getBaseUrl(true)."/{$this->imagePath}/thumbs/200x200/{$item->image}" ?>" alt="<?= $item->title ?>" width="192px" height="192px">
+                                    </div>
+                                    <div class="gallery-title hidden"><?= $item->title ?></div>
+                                    <div class="gallery-overlay"></div>
+                                    <div class="gallery-description hidden"><?= $item->description ?></div>
+                                </a>
+                            </div>
+                            <?endforeach;?>
                         </div>
-                        <?endforeach;?>
                     </div>
                 <?php endforeach; ?>
             </div>
