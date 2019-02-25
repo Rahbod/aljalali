@@ -7,7 +7,7 @@
 ?>
 <div class="about-section">
     <div class="container">
-        <h2>حول الشهيد (قدس سرّه الشريف)<small>ولد ١٣٥٥ هجري-استشهد ١٤٠۲ <هجري></هجري></small></h2>
+        <h2>حول الشهيد (قدس سرّه الشريف)<small>ولد ١٣٥٥ هجري-استشهد ١٤٠۲ هجري</small></h2>
         <div class="row">
             <?php $abouts = Pages::getPages('about', 'parent_id IS NULL'); ?>
             <?php foreach ($abouts as $item): ?>
