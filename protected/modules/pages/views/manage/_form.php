@@ -25,6 +25,12 @@ if(isset($_GET['parent']))
 
 
 <?php if(isset($_GET['parent'])):?>
+
+    <div class="form-group">
+        <?php echo $form->checkbox($model,'in_footer'); ?>
+        <?php echo $form->labelEx($model,'in_footer'); ?>
+    </div>
+
     <div class="form-group">
         <input id="parent_detail" type="checkbox" name="parent-detail" value="1" <?php if(isset($_POST['parent-detail']) || ($model->parent_id === NULL && !empty($model->summary))) echo 'checked'?>>
         <label>جزییات</label>
