@@ -112,6 +112,10 @@ class Controller extends AuthController
                     'url' => array('/admins/dashboard')
                 ),
                 array(
+                    'label' => '<i class="fa fa-file-image-o"></i><span>رسانه ها</span>',
+                    'url' => array('/media/manage'),
+                ),
+                array(
                     'label' => '<i class="fa fa-bars"></i><span>صفحات منو</span> <i class="fa fa-angle-left pull-left"></i>',
                     'url' => '#',
                     'itemOptions' => array('class' => 'treeview', 'tabindex' => "-1"),

@@ -22,6 +22,16 @@
 		<?php echo $form->error($model,'title'); ?>
 	</div>
 
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'description'); ?>
+        <?
+        $this->widget('ext.ckeditor.CKEditor', array(
+            'model'=>$model,
+            'attribute'=>'description',
+        ));
+        ?>
+        <?php echo $form->error($model,'description'); ?>
+    </div>
 	<div class="form-group buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'افزودن' : 'ویرایش', array('class' => 'btn btn-success')); ?>
 	</div>

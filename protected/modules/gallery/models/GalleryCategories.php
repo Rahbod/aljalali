@@ -7,6 +7,7 @@
  * @property string $id
  * @property string $title
  * @property string $order
+ * @property string $description
  *
  * @property Gallery[] $items
  */
@@ -31,6 +32,7 @@ class GalleryCategories extends SortableCActiveRecord
 			array('title', 'required'),
 			array('title', 'length', 'max'=>50),
 			array('order', 'length', 'max'=>10),
+			array('description', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, title, order', 'safe', 'on'=>'search'),
@@ -57,6 +59,7 @@ class GalleryCategories extends SortableCActiveRecord
 		return array(
 			'id' => 'شناسه',
 			'title' => 'عنوان',
+			'description' => 'توضیحات',
 			'order' => 'Order',
 		);
 	}

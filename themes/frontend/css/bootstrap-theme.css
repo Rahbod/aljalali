@@ -761,6 +761,11 @@ a:active {
     text-align: justify;
 }
 
+.page-text img{
+    /*min-height: 100vh;*/
+    max-width: 100% !important;
+}
+
 .page-image{
     max-width: 800px;
     display: inline-block;

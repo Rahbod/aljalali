@@ -45,6 +45,7 @@ return array(
         'map',
         'slideshow',
         'gallery',
+        'media',
 	),
 
 	// application components
@@ -53,7 +54,7 @@ return array(
             'class' => 'YMHttpRequest',
             'enableCsrfValidation'=>true,
             'noValidationRoutes'=>array(
-//                'setting/manage/uploadVideo',
+                'media/manage/deleteUpload',
             ),
         ),
 		'userCounter' => array(
