@@ -14,7 +14,7 @@ $hijriDate = HijriDate::get()->response;
     <div class="container">
         <img src="<?= Yii::app()->theme->baseUrl. '/images/kabeh.png'?>">
         <h3>الصلاة القادمة
-            <small>بتوقیت نجف الاشرف</small>
+            <small>بتوقیت النجف الاشرف</small>
             <?php if(isset($hijriDate['data']['hijri'])):?>
                 <small><?php echo $hijriDate['data']['hijri']['day'].' '.$hijriDate['data']['hijri']['month']['ar'].', '.$hijriDate['data']['hijri']['year'].' هـ'?></small>
                 <small><?php echo $hijriDate['data']['gregorian']['year'].$hijriDate['data']['gregorian']['month']['en'].$hijriDate['data']['gregorian']['day'].' مـ'?></small>
