@@ -17,6 +17,7 @@ class PagesModule extends CWebModule
     public $controllerMap = array(
         'manage' => 'pages.controllers.PagesManageController',
         'categories' => 'pages.controllers.PageCategoriesManageController',
+        'links' => 'pages.controllers.PagesLinksController',
     );
 
 	public function beforeControllerAction($controller, $action)

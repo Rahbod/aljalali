@@ -929,3 +929,6 @@ a:active {
 .map-section{
     height: 400px;
 }
+.inline-block{
+    display: inline-block !important;
+}

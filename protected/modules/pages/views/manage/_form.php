@@ -27,6 +27,14 @@ if(isset($_GET['parent']))
 <?php if(isset($_GET['parent'])):?>
 
     <div class="form-group">
+        <?php echo $form->checkbox($model,'in_menu'); ?>
+        <?php echo $form->labelEx($model,'in_menu'); ?>
+    </div>
+    <div class="form-group">
+        <?php echo $form->checkbox($model,'in_about'); ?>
+        <?php echo $form->labelEx($model,'in_about'); ?>
+    </div>
+    <div class="form-group">
         <?php echo $form->checkbox($model,'in_footer'); ?>
         <?php echo $form->labelEx($model,'in_footer'); ?>
     </div>

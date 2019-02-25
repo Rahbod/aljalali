@@ -116,7 +116,7 @@ class Controller extends AuthController
                     'url' => array('/media/manage'),
                 ),
                 array(
-                    'label' => '<i class="fa fa-bars"></i><span>صفحات منو</span> <i class="fa fa-angle-left pull-left"></i>',
+                    'label' => '<i class="fa fa-bars"></i><span>صفحات منو، فوتر و درباره</span> <i class="fa fa-angle-left pull-left"></i>',
                     'url' => '#',
                     'itemOptions' => array('class' => 'treeview', 'tabindex' => "-1"),
                     'submenuOptions' => array('class' => 'treeview-menu'),
@@ -125,13 +125,17 @@ class Controller extends AuthController
                         array('label' => '<i class="fa fa-circle-o"></i>زیرمنو ها', 'url' => Yii::app()->createUrl('/pages/manage/admin/slug/menu')),
                     )
                 ),
-                array(
-                    'label' => '<i class="fa fa-user"></i><span>درباره شهید</span>',
-                    'url' => array('/pages/manage/admin/slug/about')
-                ),
+//                array(
+//                    'label' => '<i class="fa fa-user"></i><span>درباره شهید</span>',
+//                    'url' => array('/pages/manage/admin/slug/about')
+//                ),
                 array(
                     'label' => '<i class="fa fa-graduation-cap"></i><span>خدمات شهید</span>',
                     'url' => array('/pages/manage/admin/slug/services')
+                ),
+                array(
+                    'label' => '<i class="fa fa-link"></i><span>لینک های فوتر</span>',
+                    'url' => array('/pages/links/admin')
                 ),
                 array(
                     'label' => '<i class="fa fa-picture-o"></i><span>اسلایدشو</span> <i class="fa fa-angle-left pull-left"></i>',

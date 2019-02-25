@@ -7,15 +7,15 @@
 ?>
 <div class="about-section">
     <div class="container">
-        <h2>حول الشهيد (قدس سرّه الشريف)<small>ولد ١٣٥٥ هجري-استشهد ١٤٠۲ هجري</small></h2>
+        <h2>حول الشهيد <small class="inline-block">(قدس سرّه الشريف)</small><small>ولد ١٣٥٥ هجري - استشهد ١٤٠۲ هجري</small></h2>
         <div class="row">
-            <?php $abouts = Pages::getPages('about', 'parent_id IS NULL'); ?>
+            <?php $abouts = Pages::getPages('menu', 'parent_id IS NULL and in_about = 1'); ?>
             <?php foreach ($abouts as $item): ?>
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 about-item">
                     <div class="content">
                         <h4><?= $item->title ?></h4>
                         <ul>
-                            <?php $sub = Pages::getPages('about', 'parent_id = :pid', [':pid' => $item->id]); ?>
+                            <?php $sub = Pages::getPages('menu', 'parent_id = :pid', [':pid' => $item->id]); ?>
                             <?php foreach ($sub as $page): ?>
                                 <li><a href="<?= $page->url ?>">- <?= $page->title ?></a></li>
                             <?php endforeach;?>

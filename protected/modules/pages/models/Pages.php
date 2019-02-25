@@ -12,6 +12,8 @@
  * @property string $order
  * @property string $parent_id
  * @property string $in_footer
+ * @property string $in_menu
+ * @property string $in_about
  * @property string $url
  *
  *
@@ -43,7 +45,7 @@ class Pages extends SortableCActiveRecord
             array('image, title', 'length', 'max' => 255),
             array('category_id', 'length', 'max' => 11),
             array('order, parent_id', 'length', 'max' => 10),
-            array('in_footer', 'length', 'max' => 1),
+            array('in_footer, in_menu, in_about', 'length', 'max' => 1),
             array('summary', 'safe'),
             array('formTags', 'safe'),
             // The following rule is used by search().
@@ -86,6 +88,8 @@ class Pages extends SortableCActiveRecord
             'formTags' => 'کلمات کلیدی',
             'image' => 'تصویر',
             'parent_id' => 'سردسته',
+            'in_menu' => 'نمایش در منو',
+            'in_about' => 'نمایش در درباره شهید',
             'in_footer' => 'نمایش در فوتر',
         );
     }
@@ -114,6 +118,8 @@ class Pages extends SortableCActiveRecord
         $criteria->compare('category_id', $this->category_id, true);
         $criteria->compare('parent_id', $this->parent_id);
         $criteria->compare('in_footer', $this->in_footer);
+        $criteria->compare('in_menu', $this->in_menu);
+        $criteria->compare('in_about', $this->in_about);
         if(isset($_GET['parent']))
             $criteria->addCondition('parent_id IS NULL');
         else if ($this->category_id != 3)
