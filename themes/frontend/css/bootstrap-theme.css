@@ -929,3 +929,34 @@ a:active {
 .map-section{
     height: 400px;
 }
+.inline-block{
+    display: inline-block !important;
+}
+
+.vertical-slider{
+    background-color: #fff;
+    height: 37px;
+    line-height: 37px;
+    display:block;
+    overflow:hidden;
+    padding: 0 30px;
+    font-size:12px;
+}
+
+.toranj-icon{
+    display:inline-block;
+    background: url("../svg/arabic-art.svg") no-repeat scroll center transparent;
+    background-size: 90%;
+    width:37px;
+    height:37px;
+    float: right;
+}
+
+.toranj-icon2{
+    display: inline-block;
+    background: url(../svg/arabic-art2.svg) no-repeat scroll center transparent;
+    background-size: 18px;
+    width: 30px;
+    height: 30px;
+    margin-bottom: -12px;
+}

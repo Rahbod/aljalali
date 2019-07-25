@@ -25,6 +25,7 @@ return array(
 		'application.modules.admins.models.*',
 		'application.modules.slideshow.models.*',
 		'application.modules.gallery.models.*',
+		'application.modules.marquee.models.*',
 	),
 
 	'modules'=>array(
@@ -46,6 +47,7 @@ return array(
         'slideshow',
         'gallery',
         'media',
+        'marquee'
 	),
 
 	// application components

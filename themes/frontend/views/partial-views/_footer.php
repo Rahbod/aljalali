@@ -14,7 +14,7 @@ $hijriDate = HijriDate::get()->response;
     <div class="container">
         <img src="<?= Yii::app()->theme->baseUrl. '/images/kabeh.png'?>">
         <h3>الصلاة القادمة
-            <small>بتوقیت نجف الاشرف</small>
+            <small>بتوقیت النجف الاشرف</small>
             <?php if(isset($hijriDate['data']['hijri'])):?>
                 <small><?php echo $hijriDate['data']['hijri']['day'].' '.$hijriDate['data']['hijri']['month']['ar'].', '.$hijriDate['data']['hijri']['year'].' هـ'?></small>
                 <small><?php echo $hijriDate['data']['gregorian']['year'].$hijriDate['data']['gregorian']['month']['en'].$hijriDate['data']['gregorian']['day'].' مـ'?></small>
@@ -139,22 +139,12 @@ $hijriDate = HijriDate::get()->response;
 </div>
 <div class="footer-section">
     <div class="container">
-        <?php $first_footer = Pages::model()->find('title = :title',[':title' => 'السیرة الذاتیة']); ?>
-        <div class="footer-block">
-            <h4>السیرة الذاتیة</h4>
-            <ul>
-                <?php $sub = Pages::getPages('footer', 'parent_id = :pid', [':pid' => $first_footer->id]); ?>
-                <?php foreach ($sub as $page): ?>
-                    <li><a href="<?= $page->url ?>"><?= $page->title ?></a></li>
-                <?php endforeach;?>
-            </ul>
-        </div>
-        <?php $abouts = Pages::getPages('about', 'parent_id IS NULL'); ?>
-        <?php foreach ($abouts as $item): ?>
+        <?php $footer = Pages::getPages('menu', 'parent_id IS NULL and in_footer = 1'); ?>
+        <?php foreach ($footer as $item): ?>
             <div class="footer-block">
                 <h4><?= $item->title ?></h4>
                 <ul>
-                    <?php $sub = Pages::getPages('about', 'parent_id = :pid', [':pid' => $item->id]); ?>
+                    <?php $sub = Pages::getPages('menu', 'parent_id = :pid', [':pid' => $item->id]); ?>
                     <?php foreach ($sub as $page): ?>
                         <li><a href="<?= $page->url ?>">- <?= $page->title ?></a></li>
                     <?php endforeach;?>
@@ -176,12 +166,16 @@ $hijriDate = HijriDate::get()->response;
         </div>
         <div class="footer-block">
             <h4>المواقع المرتبطة</h4>
-            <ul>
-                <li><a href="http://www.facebook.com/sayedaljalali">facebook.com/seyedaljalali</a></li>
-                <li><a href="http://www.aljalali.net">www.aljalali.net</a></li>
-                <li><a href="http://ahlulbait.co.uk">ahlulbait.co.uk</a></li>
-                <li><a href="http://surreyislamiccentre.com">surreyislamiccentre.com</a></li>
-            </ul>
+            <?php
+            $links = Links::model()->findAll(array('order' => 't.order'));
+            if($links):
+                ?>
+                <ul>
+                    <?php foreach ($links as $link): ?>
+                        <li><a href="<?= $link->link ?>"><?= $link->title ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
         </div>
         <div class="copyright">
             <div class="pull-right">
