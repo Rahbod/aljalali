@@ -46,6 +46,7 @@ return array(
         'slideshow',
         'gallery',
         'media',
+        'video',
 	),
 
 	// application components
