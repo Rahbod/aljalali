@@ -84,6 +84,7 @@
     .services-section{
         padding: 30px 0;
     }
+    .video-gallery-section h2,
     .about-section h2,
     .services-section h2{
         margin-bottom: 30px;
@@ -199,6 +200,30 @@
     }
     .menu-container .dropdown-menu>li>a{
         padding:10px 20px;
+    }
+    .video-gallery-section{
+        padding: 30px 0;
+    }
+    .video-gallery-section h2{
+        margin-top: 0;
+    }
+    .video-gallery-section .gallery-nav{
+        white-space: nowrap;
+        overflow: scroll;
+    }
+    .video-gallery-section .gallery-nav.nav-pills>li+li{
+        display: inline-block;
+        float: none;
+    }
+    .video-list .embed-code iframe{
+        height: 200px;
+    }
+    .video-list.owl-theme .owl-dots .owl-dot span{
+        height: 5px;
+    }
+    .video-list.owl-theme .owl-dots .owl-dot.active span{
+        width: 25px;
+        background: #337ab7;
     }
 }
 @media (min-width: 768px) and (max-width: 991px){}

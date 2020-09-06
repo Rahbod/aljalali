@@ -114,7 +114,7 @@ if($module)
             $cs->registerCssFile($baseUrl.'/css/owl.theme.default.min.css');
             $cs->registerScriptFile($baseUrl.'/js/owl.carousel.min.js', CClientScript::POS_END);
             ?>
-            <div class="slider owl-carousel owl-theme">
+            <div class="slider owl-carousel owl-theme" data-items="1" data-rtl="true" data-autoplay="true" data-dots="false">
                 <?php foreach (Slideshow::getSlides() as $slide):
                     if($slide->image and is_file(Yii::getPathOfAlias('webroot').'/uploads/slideshow/'.$slide->image)):
                     ?>

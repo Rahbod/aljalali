@@ -8,7 +8,7 @@
  * @property string $title
  * @property string $order
  *
- * @property Video[] $items
+ * @property Video[] $videos
  */
 class VideoCategories extends SortableCActiveRecord
 {
@@ -45,7 +45,7 @@ class VideoCategories extends SortableCActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-		    'items' => array(self::HAS_MANY, 'Video', 'category_id')
+		    'videos' => array(self::HAS_MANY, 'Video', 'category_id')
 		);
 	}
 
@@ -97,5 +97,16 @@ class VideoCategories extends SortableCActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	/**
+     * @return self[]
+	 */
+    public static function getAll()
+    {
+        $criteria = new CDbCriteria();
+        $criteria->order = 't.order';
+        $criteria->with = array('videos');
+        return self::model()->findAll($criteria);
 	}
 }
