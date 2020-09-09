@@ -5,6 +5,23 @@ $(document).ready(function() {
         }
     });
 
+    if ($("#js-news").length) {
+        $("#js-news").ticker({
+            speed: 0.10,           // The speed of the reveal
+            ajaxFeed: false,       // Populate jQuery News Ticker via a feed
+            htmlFeed: true,        // Populate jQuery News Ticker via HTML
+            debugMode: false,       // Show some helpful errors in the console or as alerts
+      	                       // SHOULD BE SET TO FALSE FOR PRODUCTION SITES!
+            controls: false,        // Whether or not to show the jQuery News Ticker controls
+            titleText: '<i class="toranj-icon"></i>',   // To remove the title set this to an empty String
+            displayType: 'fade', // Animation type - current options are 'reveal' or 'fade'
+            direction: 'rtl',       // Ticker direction - current options are 'ltr' or 'rtl'
+            pauseOnItems: 7000,    // The pause on a news item before being replaced
+            fadeInSpeed: 600,      // Speed of fade in animation
+            fadeOutSpeed: 300      // Speed of fade out animation
+        });
+    }
+
     if ($(".owl-carousel").length) {
         $(".owl-carousel").each(function () {
             var options = $(this).data(),
@@ -61,7 +78,7 @@ $(document).ready(function() {
         }
     });
 
-    if ($(window).width() > 768) {
+    if ($(window).width() > 1200) {
         var timeout;
         $("body").on("mouseover", "li.dropdown", function () {
             clearTimeout(timeout);
@@ -77,7 +94,7 @@ $(document).ready(function() {
 
     $("body").on("click" ,".page-text a[href^='#']",function(e) {
         e.preventDefault();
-        if ($(window).width() < 768)
+        if ($(window).width() < 1200)
             $('.menu-container .menu').removeClass('open');
         $("li.dropdown").removeClass("open");
 

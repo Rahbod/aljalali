@@ -11,6 +11,9 @@
     .top-section.inner{
         height:70px;
     }
+    .menu-container.on-top{
+        top: 0;
+    }
     .header{
         padding-top: 70px;
     }
@@ -80,6 +83,44 @@
         padding: 10px 15px;
         font-size: 13px;
     }
+    .menu-container .menu >ul>li >a::before{
+        width: 3px;
+        height:100%;
+        border-radius: 3px 0 0 3px;
+    }
+}
+@media screen and (max-width: 767px){
+    .vertical-slider{
+        background-color: #fff;
+        height: 37px;
+        line-height: 37px;
+        padding: 0 15px;
+        font-size:12px;
+    }
+    .gallery-list{
+        text-align: center;
+    }
+    .gallery-item{
+        float: none;
+    }
+    .top-section{
+        height:232px;
+    }
+    .top-section.inner{
+        height:70px;
+    }
+    .search-container{
+        float: none;
+        width: 100%;
+    }
+    .slider .slide-item{
+        height:200px;
+        height:auto;
+    }
+    .slider .slide-item img{
+        max-height:200px;
+    }
+
     .about-section,
     .services-section{
         padding: 30px 0;

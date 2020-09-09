@@ -112,6 +112,10 @@ class Controller extends AuthController
                     'url' => array('/admins/dashboard')
                 ),
                 array(
+                    'label' => '<i class="fa fa-file-text-o"></i><span>جملات کوتاه</span>',
+                    'url' => array('/marquee/manage/admin'),
+                ),
+                array(
                     'label' => '<i class="fa fa-file-image-o"></i><span>رسانه ها</span>',
                     'url' => array('/media/manage'),
                 ),
