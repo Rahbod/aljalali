@@ -16,7 +16,7 @@ $(document).ready(function() {
             titleText: '<i class="toranj-icon"></i>',   // To remove the title set this to an empty String
             displayType: 'fade', // Animation type - current options are 'reveal' or 'fade'
             direction: 'rtl',       // Ticker direction - current options are 'ltr' or 'rtl'
-            pauseOnItems: 5000,    // The pause on a news item before being replaced
+            pauseOnItems: 7000,    // The pause on a news item before being replaced
             fadeInSpeed: 600,      // Speed of fade in animation
             fadeOutSpeed: 300      // Speed of fade out animation
         });
