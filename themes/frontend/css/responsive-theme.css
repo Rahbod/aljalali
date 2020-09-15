@@ -220,11 +220,11 @@
     .video-gallery-section h2{
         margin-top: 0;
     }
-    .video-gallery-section .gallery-nav{
+    .gallery-nav{
         white-space: nowrap;
         overflow: scroll;
     }
-    .video-gallery-section .gallery-nav.nav-pills>li+li{
+    .gallery-nav.nav-pills>li+li{
         display: inline-block;
         float: none;
     }
@@ -237,6 +237,12 @@
     .video-list.owl-theme .owl-dots .owl-dot.active span{
         width: 25px;
         background: #337ab7;
+    }
+    .video-gallery-section .archive-link {
+        width: 100%;
+        float: none;
+        margin-top: 15px;
+        display: block;
     }
 }
 @media (min-width: 768px) and (max-width: 991px){}

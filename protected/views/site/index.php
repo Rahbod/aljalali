@@ -33,6 +33,7 @@
                             </div>
                         <?php endforeach; ?>
                     </div>
+                    <a href="<?php echo $this->createUrl('/video/archive')?>" class="archive-link">آرشیو</a>
                 </div>
             </div>
         </div>

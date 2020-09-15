@@ -15,6 +15,7 @@ class VideoModule extends CWebModule
 	}
 
     public $controllerMap = array(
+        'archive' => 'video.controllers.VideoArchiveController',
         'manage' => 'video.controllers.VideoManageController',
         'categories' => 'video.controllers.VideoCategoriesController',
     );

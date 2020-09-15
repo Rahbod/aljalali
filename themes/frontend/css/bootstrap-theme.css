@@ -1099,12 +1099,18 @@ a:active {
     color: #333;
 }
 
+.video-gallery-list .video-item {
+    margin-bottom: 30px;
+}
+
+.video-gallery-list .video-item h4,
 .video-list .video-item h4 {
     color: #333;
     line-height: 25px;
     margin-bottom: 0;
 }
 
+.video-gallery-list .video-item h4 small,
 .video-list .video-item h4 small {
     display: block;
     margin-top: 10px;
@@ -1162,38 +1168,58 @@ a:active {
 .video-list.owl-theme .owl-nav [class*=owl-]:hover {
     background: transparent;
 }
-.inline-block{
+
+.inline-block {
     display: inline-block !important;
 }
 
-.vertical-slider{
+.vertical-slider {
     background-color: #fff;
     height: 37px;
     line-height: 37px;
-    display:block;
-    overflow:hidden;
+    display: block;
+    overflow: hidden;
     padding: 0 30px;
-    font-size:12px;
+    font-size: 12px;
 }
 
-.inner .vertical-slider{
+.inner .vertical-slider {
     border-bottom: 1px solid #666;
 }
 
-.toranj-icon{
-    display:inline-block;
+.toranj-icon {
+    display: inline-block;
     background: url("../svg/arabic-art.svg") no-repeat scroll center transparent;
     background-size: 90%;
-    width:37px;
-    height:37px;
+    width: 37px;
+    height: 37px;
     float: right;
 }
 
-.toranj-icon2{
+.toranj-icon2 {
     display: inline-block;
     background: url(../svg/arabic-art2.svg) no-repeat scroll center transparent;
     background-size: 18px;
     width: 30px;
     height: 30px;
     margin-bottom: -12px;
+}
+
+.video-gallery-section .archive-link {
+    background: #77a52d;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 5px;
+    line-height: 25px;
+    height: 46px;
+    width: 150px;
+    float: left;
+    text-align: center;
+    margin-top: -45px;
+    position: relative;
+    z-index: 4;
+}
+
+.video-gallery-section .archive-link:hover {
+    background: #6c9629;
 }
