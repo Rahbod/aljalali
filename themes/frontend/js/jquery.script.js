@@ -23,14 +23,35 @@ $(document).ready(function() {
     }
 
     if ($(".owl-carousel").length) {
-        $(".owl-carousel").owlCarousel({
-            items: 1,
-            autoplay: true,
-            rtl: true
+        $(".owl-carousel").each(function () {
+            var options = $(this).data(),
+                allOptions = $(this).data('owlcarousel');
+            delete options.owlcarousel;
+
+            if (typeof allOptions === "string" && allOptions.indexOf("js:") !== -1)
+                allOptions = JSON.parse(allOptions.substr(3));
+
+            if (typeof options.autoheight !== undefined) {
+                options.autoHeight = true;
+                delete options.autoheight;
+            }
+
+            if($(window).width() < 768){
+                options['nav'] = false;
+                options['dots'] = true;
+            }
+
+
+            options['navText'] = ['<span></span>', '<span></span>'];
+
+            if (typeof allOptions !== undefined)
+                options = $.extend(options, allOptions);
+
+            $(this).owlCarousel(options);
         });
 
-        var dotsCount = $(".owl-carousel .owl-dot").length;
-        $(".owl-carousel .owl-dots").css("margin-left", -((dotsCount * 16 + 20) / 2));
+        var dotsCount = $(".owl-carousel:not(.video-list) .owl-dot").length;
+        $(".owl-carousel:not(.video-list) .owl-dots").css("margin-left", -((dotsCount * 16 + 20) / 2));
     }
 
     $('.mobile-menu-trigger').on('click', function (e) {
