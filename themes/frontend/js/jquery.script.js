@@ -47,6 +47,7 @@ $(document).ready(function() {
             if (typeof allOptions !== undefined)
                 options = $.extend(options, allOptions);
 
+            console.log(options);
             $(this).owlCarousel(options);
         });
 
