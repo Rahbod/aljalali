@@ -5,37 +5,40 @@
  * @var $baseUrl string
  */
 ?>
-<div class="video-gallery-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <h2>المرئیات</h2>
-            </div>
-            <?php $videoCategories = VideoCategories::getAll();?>
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 left-side">
-                <ul class="nav nav-pills gallery-nav text-right">
-                <?php $i=0;foreach ($videoCategories as $category):$i++; ?>
-                    <li<?= $i==1?' class="active"':'' ?>><a href="#" data-toggle="tab" data-target="#category-<?= $category->id ?>"><?= $category->title ?></a></li>
-                <?php endforeach; ?>
-                </ul>
-                <div class="tab-content text-right">
+<?php $videoCategories = VideoCategories::getAll();?>
+<?php if($videoCategories):?>
+    <div class="video-gallery-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <h2>حول الشهيد <small class="inline-block">(قدس سرّه الشريف)</small><small>ولد ١٣٥٥ هجري - استشهد ١٤٠۲ هجري</small></h2>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 left-side">
+                    <ul class="nav nav-pills gallery-nav text-right">
                     <?php $i=0;foreach ($videoCategories as $category):$i++; ?>
-                        <div class="tab-pane fade <?= $i==1?'active in':''?>" id="category-<?= $category->id ?>">
-                            <div class="video-list owl-carousel owl-theme" data-items="1" data-nav="true" data-rtl="true" data-dots="false">
-                                <?foreach ($category->videos as $video):?>
-                                    <div class="video-item">
-                                        <div class="embed-code"><?php echo $video->embed;?></div>
-                                        <h4><?php echo $video->title?><small><?php echo $video->place . ($video->date ? ' - '.$video->date : '')?></small></h4>
-                                    </div>
-                                <?endforeach;?>
-                            </div>
-                        </div>
+                        <li<?= $i==1?' class="active"':'' ?>><a href="#" data-toggle="tab" data-target="#category-<?= $category->id ?>"><?= $category->title ?></a></li>
                     <?php endforeach; ?>
+                    </ul>
+                    <div class="tab-content text-right">
+                        <?php $i=0;foreach ($videoCategories as $category):$i++; ?>
+                            <div class="tab-pane fade <?= $i==1?'active in':''?>" id="category-<?= $category->id ?>">
+                                <div class="video-list owl-carousel owl-theme" data-items="1" data-nav="true" data-rtl="true" data-dots="false">
+                                    <?foreach ($category->videos as $video):?>
+                                        <div class="video-item">
+                                            <div class="embed-code"><?php echo $video->embed;?></div>
+                                            <h4><?php echo $video->title?><small><?php echo $video->place . ($video->date ? ' - '.$video->date : '')?></small></h4>
+                                        </div>
+                                    <?endforeach;?>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <a href="<?php echo $this->createUrl('/video/archive')?>" class="archive-link">آرشیو</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
+<?php endif;?>
 <div class="about-section">
     <div class="container">
         <h2>حول الشهيد <small class="inline-block">(قدس سرّه الشريف)</small><small>ولد ١٣٥٥ هجري - استشهد ١٤٠۲ هجري</small></h2>

@@ -1,7 +1,10 @@
 <?php
 
-class VideoModule extends CWebModule
+class MarqueeModule extends CWebModule
 {
+    public $controllerMap = array(
+        'manage' => 'marquee.controllers.MarqueeManageController'    
+    );
 	public function init()
 	{
 		// this method is called when the module is being created
@@ -9,16 +12,10 @@ class VideoModule extends CWebModule
 
 		// import the module-level models and components
 		$this->setImport(array(
-			'video.models.*',
-			'video.components.*',
+			'marquee.models.*',
+			'marquee.components.*',
 		));
 	}
-
-    public $controllerMap = array(
-        'archive' => 'video.controllers.VideoArchiveController',
-        'manage' => 'video.controllers.VideoManageController',
-        'categories' => 'video.controllers.VideoCategoriesController',
-    );
 
 	public function beforeControllerAction($controller, $action)
 	{
