@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <h2>حول الشهيد <small class="inline-block">(قدس سرّه الشريف)</small><small>ولد ١٣٥٥ هجري - استشهد ١٤٠۲ هجري</small></h2>
+                <h2>المرئیات</h2>
             </div>
             <?php $videoCategories = VideoCategories::getAll();?>
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 left-side">
