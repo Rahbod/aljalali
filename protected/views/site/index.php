@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <h2>حول الشهيد <small class="inline-block">(قدس سرّه الشريف)</small><small>ولد ١٣٥٥ هجري - استشهد ١٤٠۲ هجري</small></h2>
+                    <h2>المرئیات</h2>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 left-side">
                     <ul class="nav nav-pills gallery-nav text-right">
@@ -33,7 +33,7 @@
                             </div>
                         <?php endforeach; ?>
                     </div>
-                    <a href="<?php echo $this->createUrl('/video/archive')?>" class="archive-link">آرشیو</a>
+                    <a href="<?php echo $this->createUrl('/video/archive')?>" class="archive-link">الأرشیف</a>
                 </div>
             </div>
         </div>
