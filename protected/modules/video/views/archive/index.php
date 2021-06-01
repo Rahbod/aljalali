@@ -28,7 +28,7 @@ $cs = Yii::app()->clientScript;
                             <div class="col-lg-3">
                                 <label for="year-dropdown">سنة:</label>
                                 <select id="year-dropdown">
-                                    <option value="" disabled>یختار</option>
+                                    <option value="">یختار</option>
                                     <?php foreach ($yearsDataProvider->getData() as $year):?>
                                         <option value="<?php echo $year->year?>" <?php if(isset($_GET['year']) and $_GET['year'] == $year->year):?> selected <?php endif?>><?php echo $year->year?></option>
                                     <?php endforeach;?>
