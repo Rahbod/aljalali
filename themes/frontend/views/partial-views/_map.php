@@ -9,33 +9,28 @@ $mapLat = $map_model->map_lat;
 $mapLng = $map_model->map_lng;
 $mapZoom = 15;
 if($map_model) {
-    Yii::app()->clientScript->registerScriptFile('https://maps.googleapis.com/maps/api/js?key=AIzaSyDbhMDAxCreEWc5Due7477QxAVuBAJKdTM');
-    Yii::app()->clientScript->registerScript($id.'-script', "
-    var map;
-	var marker;
-	var myCenter=new google.maps.LatLng(" . $mapLat . "," . $mapLng . ");
-	function initialize()
-	{
-		var mapProp = {
-          center:myCenter,
-          zoom:" . $mapZoom . ",
-          scrollwheel: false
-          };
-
-	    map = new google.maps.Map(document.getElementById('{$id}'),mapProp);
-		placeMarker(myCenter ,map);
-	}
-
-	function placeMarker(location ,map) {
-
-		if(marker != undefined)
-			marker.setMap(null);
-	    marker = new google.maps.Marker({
-            position: location,
-            map: map,
-        });
-	}
-	google.maps.event.addDomListener(window, 'load', initialize);",CClientScript::POS_READY);
+//    Yii::app()->clientScript->registerScriptFile('https://maps.googleapis.com/maps/api/js?key=AIzaSyDbhMDAxCreEWc5Due7477QxAVuBAJKdTM');
+    Yii::app()->clientScript->registerScriptFile('https://cdnjs.cloudflare.com/ajax/libs/openlayers/2.11/lib/OpenLayers.js');
+    Yii::app()->clientScript->registerScript($id.'-script',
+        "
+        map = new OpenLayers.Map('$id');
+        map.addLayer(new OpenLayers.Layer.OSM());
+    
+        var lonLat = new OpenLayers.LonLat($mapLng,$mapLat).transform(
+            new OpenLayers.Projection('EPSG:4326'), // transform from WGS 1984
+            map.getProjectionObject() // to Spherical Mercator Projection
+          );
+              
+        var zoom=$mapZoom;
+    
+        var markers = new OpenLayers.Layer.Markers('Markers');
+        map.addLayer(markers);
+        
+        markers.addMarker(new OpenLayers.Marker(lonLat));
+        
+        map.setCenter (lonLat, zoom);
+        "
+        ,CClientScript::POS_READY);
 }
 ?>
 <div id="<?= $id ?>"></div>

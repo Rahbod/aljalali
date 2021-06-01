@@ -18,7 +18,7 @@
     <?php $this->renderPartial("//partial-views/_flashMessage"); ?>
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'title'); ?>
-		<?php echo $form->textField($model,'title',array('size'=>50, 'class' => 'form-control','maxlength'=>50)); ?>
+		<?php echo $form->textField($model,'title',array('size'=>200, 'class' => 'form-control','maxlength'=>200)); ?>
 		<?php echo $form->error($model,'title'); ?>
 	</div>
 

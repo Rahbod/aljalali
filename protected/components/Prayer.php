@@ -2,7 +2,7 @@
 
 class Prayer
 {
-    private static $_key = '53281d302cfab8d904fa66d263f88ae2';
+    //private static $_key = 'e39c95b42e1222d29f4e9ee28a1fbcde';
 
     /**
      * @return Curl
@@ -10,7 +10,8 @@ class Prayer
     public static function get()
     {
         $curl = new Curl();
-        $curl->get("http://muslimsalat.com/najaf/daily.json?key=" . self::$_key,false);
+//        $curl->get("http://muslimsalat.com/najaf/daily.json?key=" . self::$_key,false);
+        $curl->get("https://api.pray.zone/v2/times/today.json?city=najaf",false);
         return $curl;
     }
 }

@@ -5,7 +5,7 @@ $controller = $this->action->controller->id;
 $module = $this->action->controller->module?$this->action->controller->module->id:null;
 $action = $this->action->id;
 
-$prayer = Prayer::get()->response['items'][0];
+$prayer = Prayer::get()->response['results']['datetime'][0]['times'];
 $hijriDate = HijriDate::get()->response;
 ?>
 
@@ -23,23 +23,23 @@ $hijriDate = HijriDate::get()->response;
         <ul class="times">
             <li>
                 <div class="title">فجر</div>
-                <div class="time"><?= $prayer['fajr'] ?></div>
+                <div class="time"><?= $prayer['Fajr'] ?></div>
             </li>
             <li>
                 <div class="title">ظهر</div>
-                <div class="time"><?= $prayer['dhuhr'] ?></div>
+                <div class="time"><?= $prayer['Dhuhr'] ?></div>
             </li>
             <li>
                 <div class="title">عصر</div>
-                <div class="time"><?= $prayer['asr'] ?></div>
+                <div class="time"><?= $prayer['Asr'] ?></div>
             </li>
             <li>
                 <div class="title">مغرب</div>
-                <div class="time"><?= $prayer['maghrib'] ?></div>
+                <div class="time"><?= $prayer['Maghrib'] ?></div>
             </li>
             <li>
                 <div class="title">عشاء</div>
-                <div class="time"><?= $prayer['isha'] ?></div>
+                <div class="time"><?= $prayer['Isha'] ?></div>
             </li>
         </ul>
     </div>

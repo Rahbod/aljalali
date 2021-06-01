@@ -52,6 +52,18 @@
         <?php echo $form->error($model,'date'); ?>
     </div>
 
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'sub_category'); ?>
+        <?php echo $form->dropDownList($model,'sub_category', $model::$subCategories, array('class' => 'form-control')); ?>
+        <?php echo $form->error($model,'category_id'); ?>
+    </div>
+
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'year'); ?>
+        <?php echo $form->numberField($model,'year',array('class' => 'form-control','maxlength'=>4)); ?>
+        <?php echo $form->error($model,'year'); ?>
+    </div>
+
 	<div class="form-group buttons">
         <?php echo CHtml::submitButton($model->isNewRecord ? 'افزودن' : 'ویرایش', array('class' => 'btn btn-success')); ?>
 	</div>

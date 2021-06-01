@@ -93,7 +93,7 @@
         <div class="video-container">
             <?php $video = SiteSetting::getOption('footer_video');
             if($video and is_file(Yii::getPathOfAlias('webroot').'/uploads/setting/'.$video)): ?>
-                <video width="320" height="240" controls preload="none">
+                <video width="320" height="240" controls preload="none" poster="<?= Yii::app()->getBaseUrl(true).'/themes/frontend/images/video-poster.jpg' ?>">
                     <source src="<?= Yii::app()->getBaseUrl(true).'/uploads/setting/'.$video ?>" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>

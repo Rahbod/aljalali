@@ -105,4 +105,6 @@ $(document).ready(function() {
                 scrollTop: ($(href).offset().top - 90)
             }, 1000);
     });
+
+    $('.video-list .embed-code iframe, .video-gallery-list .video-item .embed-code iframe').attr('width', '').attr('height', '');
 });

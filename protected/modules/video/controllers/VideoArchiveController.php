@@ -45,9 +45,19 @@ class VideoArchiveController extends Controller
     {
         Yii::app()->theme = 'frontend';
         $this->layout = '//layouts/inner';
-        $dataProvider = new CActiveDataProvider('Video');
+
+        $criteria = new CDbCriteria;
+        $criteria->select = 'year';
+        $criteria->group = 'year';
+        $criteria->order = 'year DESC';
+        $criteria->having = 'year != 0';
+
+        $yearsDataProvider = new CActiveDataProvider('Video', [
+            'criteria' => $criteria,
+        ]);
+
         $this->render('index', array(
-            'dataProvider' => $dataProvider,
+            'yearsDataProvider' => $yearsDataProvider,
         ));
     }
 }

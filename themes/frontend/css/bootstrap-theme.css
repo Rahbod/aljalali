@@ -967,6 +967,12 @@ a:active {
     margin-bottom: 30px;
 }
 
+.gallery-nav li,
+.nav-pills.gallery-nav > li + li {
+    width: 50%;
+    margin: 0;
+}
+
 .gallery-list {
     margin: 0 -4px;
 }
@@ -1080,7 +1086,7 @@ a:active {
 }
 
 .video-list .embed-code iframe {
-    max-width: 100%;
+    width: 100%;
     height: 400px;
 }
 
@@ -1101,6 +1107,11 @@ a:active {
 
 .video-gallery-list .video-item {
     margin-bottom: 30px;
+}
+
+.video-gallery-list .video-item .embed-code iframe {
+    width: 100%;
+    height: 300px;
 }
 
 .video-gallery-list .video-item h4,
@@ -1180,7 +1191,7 @@ a:active {
     display: block;
     overflow: hidden;
     padding: 0 30px;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .inner .vertical-slider {
@@ -1222,4 +1233,47 @@ a:active {
 
 .video-gallery-section .archive-link:hover {
     background: #6c9629;
+}
+
+.video-filter-container {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+
+.video-filter-container .btn-filter {
+    background: #77a52d;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 5px;
+    line-height: 20px;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+
+.video-filter-container .btn-filter:hover {
+    background: #6c9629;
+}
+
+.video-filter-container .btn-filter.active {
+    background: #54751f;
+}
+
+.video-filter-container label {
+    height: 40px;
+    line-height: 40px;
+    width: 50px;
+    margin: 0;
+}
+
+.video-filter-container select {
+    height: 40px;
+    width: calc(100% - 54px);
+    border-radius: 10px;
+    margin: 0;
+    border: 1px solid #ccc;
+    padding: 10px;
 }
