@@ -12,6 +12,7 @@
  * @property string $order
  * @property integer $sub_category
  * @property integer $year
+ * @property string $file
  */
 class Video extends SortableCActiveRecord
 {
@@ -37,10 +38,11 @@ class Video extends SortableCActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('title, embed, category_id, year', 'required'),
+            array('title, category_id, year', 'required'),
             array('title, date, place', 'length', 'max' => 50),
             array('category_id, order', 'length', 'max' => 10),
             array('sub_category', 'length', 'max' => 1),
+            array('file', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
             array('id, title, embed, category_id, date, place, order', 'safe', 'on' => 'search'),
@@ -74,6 +76,7 @@ class Video extends SortableCActiveRecord
             'embed' => 'Embed Code',
             'sub_category' => 'دسته بندی سخنرانی ها',
             'year' => 'سال',
+            'file' => 'فایل فیلم',
         );
     }
 
@@ -103,6 +106,7 @@ class Video extends SortableCActiveRecord
         $criteria->compare('order', $this->order, true);
         $criteria->compare('sub_category', $this->sub_category, true);
         $criteria->compare('year', $this->year, true);
+        $criteria->compare('file', $this->file, true);
 
         $criteria->order = 't.order';
         return new CActiveDataProvider($this, array(

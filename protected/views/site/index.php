@@ -24,10 +24,17 @@
                             <div class="tab-pane fade <?= $i==1?'active in':''?>" id="category-<?= $category->id ?>">
                                 <div class="video-list owl-carousel owl-theme" data-items="1" data-nav="true" data-rtl="true" data-dots="false">
                                     <?foreach ($category->videos as $video):?>
-                                        <div class="video-item">
-                                            <div class="embed-code"><?php echo $video->embed;?></div>
-                                            <h4><?php echo $video->title?><small><?php echo $video->place . ($video->date ? ' - '.$video->date : '')?></small></h4>
-                                        </div>
+                                        <?php if(!empty($video->file)):?>
+                                            <div class="video-item">
+                                                <video controls src="<?php echo '/uploads/videos/'.$video->file?>" style="width: 100%;"></video>
+                                                <h4><?php echo $video->title?><small><?php echo $video->place . ($video->date ? ' - '.$video->date : '')?></small></h4>
+                                            </div>
+                                        <?php else:?>
+                                            <div class="video-item">
+                                                <div class="embed-code"><?php echo $video->embed;?></div>
+                                                <h4><?php echo $video->title?><small><?php echo $video->place . ($video->date ? ' - '.$video->date : '')?></small></h4>
+                                            </div>
+                                        <?php endif;?>
                                     <?endforeach;?>
                                 </div>
                             </div>

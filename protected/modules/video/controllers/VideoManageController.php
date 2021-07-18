@@ -7,6 +7,9 @@ class VideoManageController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
+    public $filePath = 'uploads/videos';
+    public $tempPath = 'uploads/temp';
+    public $fileOptions = [];
 
 	/**
 	 * @return array action filters
@@ -51,6 +54,21 @@ class VideoManageController extends Controller
             'order' => array( // ordering models
                 'class' => 'ext.yiiSortableModel.actions.AjaxSortingAction',
             ),
+            'upload' => array( // list video upload
+                'class' => 'ext.dropZoneUploader.actions.AjaxUploadAction',
+                'attribute' => 'file',
+                'rename' => 'random',
+                'validateOptions' => array(
+                    'acceptedTypes' => array('mp4')
+                )
+            ),
+            'deleteUpload' => array( // delete list video uploaded
+                'class' => 'ext.dropZoneUploader.actions.AjaxDeleteUploadedAction',
+                'modelName' => 'Video',
+                'attribute' => 'file',
+                'uploadDir' => "/$this->filePath/",
+                'storedMode' => 'field'
+            ),
         );
     }
 
@@ -79,7 +97,9 @@ class VideoManageController extends Controller
 		if(isset($_POST['Video']))
 		{
 			$model->attributes=$_POST['Video'];
+            $file = new UploadedFiles($this->tempPath, $model->file,$this->fileOptions);
             if($model->save()){
+                $file->move($this->filePath);
                 Yii::app()->user->setFlash('success' ,'اطلاعات با موفقیت ثبت شد.');
                 $this->redirect(array('admin'));
             }else
@@ -102,10 +122,13 @@ class VideoManageController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+        $file = new UploadedFiles($this->filePath, $model->file, $this->fileOptions);
 		if(isset($_POST['Video']))
 		{
+            $oldFile= $model->file;
             $model->attributes=$_POST['Video'];
             if($model->save()){
+                $file->update($oldFile, $model->file, $this->tempPath);
                 Yii::app()->user->setFlash('success' ,'اطلاعات با ویرایش شد.');
                 $this->refresh();
             }else
@@ -125,6 +148,8 @@ class VideoManageController extends Controller
 	public function actionDelete($id)
 	{
         $model = $this->loadModel($id);
+        $file = new UploadedFiles($this->filePath, $model->file, $this->fileOptions);
+        $file->removeAll(true);
         $model->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser

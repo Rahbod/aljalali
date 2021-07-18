@@ -58,10 +58,17 @@ $cs = Yii::app()->clientScript;
                     <div class="tab-pane fade <?= $i==1?'active in':''?>" id="category-<?= $category->id ?>">
                         <div class="video-gallery-list row">
                             <?foreach ($category->videos as $video):?>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 video-item">
-                                    <div class="embed-code"><?php echo $video->embed;?></div>
-                                    <h4><?php echo $video->title?><small><?php echo $video->place . ($video->date ? ' - '.$video->date : '')?></small></h4>
-                                </div>
+                                <?php if(!empty($video->file)):?>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 video-item">
+                                        <video controls src="<?php echo '/uploads/videos/'.$video->file?>" style="width: 100%;"></video>
+                                        <h4><?php echo $video->title?><small><?php echo $video->place . ($video->date ? ' - '.$video->date : '')?></small></h4>
+                                    </div>
+                                <?php else:?>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 video-item">
+                                        <div class="embed-code"><?php echo $video->embed;?></div>
+                                        <h4><?php echo $video->title?><small><?php echo $video->place . ($video->date ? ' - '.$video->date : '')?></small></h4>
+                                    </div>
+                                <?php endif;?>
                             <?endforeach;?>
                         </div>
                     </div>
